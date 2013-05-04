@@ -1,1 +1,541 @@
-My GitHub Page
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/drupalcon_pdx_icon_2.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+  
+  <slide class="segue light nobackground">
+    <hgroup class="auto-fadein">
+      <h2>What's a plugin?</h2>
+      <h3>[Good explanation of what a plugin is]</h3>
+    </hgroup>
+  </slide>  
+  
+  <slide class="segue light nobackground">
+    <hgroup class="auto-fadein">
+      <h2>What's a haiku?</h2>
+      <h3>[Good explanation of what a haiku is]</h3>
+    </hgroup>
+  </slide>    
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Plugins add discrete <br/>
+        abilities to your site. <br/>
+        Assembly required.
+      </q>
+    </article>
+  </slide>  
+  
+  <slide>
+    <hgroup>
+      <h2>One or two slides presenting ourselves.</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Titles are formatted as Open Sans with bold applied and font size is set at 45</li>
+        <li>Title capitalization is title case
+          <ul>
+            <li>Subtitle capitalization is title case</li>
+          </ul>
+        </li>
+        <li>Subtitle capitalization is title case</li>
+        <li>Titles and subtitles should never have a period at the end</li>
+      </ul>
+    </article>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>What is CTools?</h2>
+      <h3>Acronym for Chaos Tools</h3>
+    </hgroup>
+    <article>
+      <p>A list where items build:</p>
+      <ul class="build">
+        <li>Item 1</li>
+      </ul>
+    </article>
+  </slide>  
+
+  <slide>
+    <hgroup>
+      <h2>Earl appreciation slide</h2>
+    </hgroup>
+    <article>
+      <p>A list where items build:</p>
+      <ul class="build">
+        <li>Item 1</li>
+      </ul>
+    </article>
+  </slide>  
+  
+  <slide class="subtitle-slide segue nobackground">
+    <hgroup class="auto-fadein">
+      <h1>Panels universe</h1>
+    </hgroup>
+  </slide>  
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Control your layout <br/>
+        With in browser editing. <br/>
+        Drupal 8’s White Whale.
+      </q>
+    </article>
+  </slide>    
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        One function is the <br/>
+        reason the plugin exists.<br/>
+        Debug in there first.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>I don't know if we want to put a title or not, here's the original one: <b>How to read a plugin file</b></p>
+      </section>
+    </aside>     
+  </slide>   
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Pass in a context.<br/>
+        And get another context.<br/>
+        It is that simple.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>I don't know if we want to put a title or not, here's the original one: <b>Relationship Plugins</b></p>
+      </section>
+    </aside>     
+  </slide>     
+
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        With standard classes <br/>
+        We don’t know an object’s type.<br/>
+        Wrap and label it.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>I don't know if we want to put a title or not, here's the original one: <b>Context Plugins</b></p>
+      </section>
+    </aside>     
+  </slide>        
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Give it a context<br/>
+        And some configuration.<br/>
+        Get back TRUE or FALSE.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>I don't know if we want to put a title or not, here's the original one: <b>Access Plugins</b></p>
+      </section>
+    </aside>     
+  </slide>          
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Returns some markup,<br/>
+        Wrapped in a standard object.<br/>
+        Sorry for the name.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>I don't know if we want to put a title or not, here's the original one: <b>Content Type Plugins</b></p>
+      </section>
+    </aside>     
+  </slide>   
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Go from URL<br/>
+        strings to contexts and use them<br/>
+        in Page Manager.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>I don't know if we want to put a title or not, here's the original one: <b>Argument Plugins</b></p>
+      </section>
+    </aside>     
+  </slide>      
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Tell it your regions<br/>
+        And give it a TPL.<br/>
+        See it in Panels.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>I don't know if we want to put a title or not, here's the original one: <b>Layout Plugins</b></p>
+      </section>
+    </aside>     
+  </slide>     
+  
+  <slide class="subtitle-slide segue nobackground">
+    <hgroup class="auto-fadein">
+      <h1>Outside Panels universe</h1>
+    </hgroup>
+  </slide>   
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        It’s not just Panels.<br/>
+        Plugins can enhance much more.<br/>
+        Extend your mind too.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Plugins don’t solely live inside and for Panels, but for encapsulating other useful pieces of code to be shipped and extended by other parties. We could introduce the concept of what a plugin outside panels should do. Show a couple of examples and how to extend things like entity reference or addressfield.</p>
+      </section>
+    </aside>     
+  </slide>   
+  
+  <slide class="segue dark nobackground">
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Make data export<br/>
+        part of your contrib modules.<br/>
+        Get UI for free
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Alternative one: Module with table | With data easy to forget | CTools exports you</p>
+      </section>
+    </aside>     
+  </slide>     
+  
+  <slide>
+    <hgroup>
+      <h2>How to use plugins outside of panels</h2>
+    </hgroup>
+    <article>
+      <p>Example of hook_ctools_plugin_type</p>
+      <pre class="prettyprint" data-lang="php">
+        code
+      </pre>
+    </article>
+  </slide> 
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Entity Reference</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Even field module<br/>
+        Has plugins extending it.<br/>
+        Beats huge form alters.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Review Haiku</p>
+        <p>What’s a behavior and examples on how to extend it.</p>
+      </section>
+    </aside>     
+  </slide>      
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Feeds</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Fetch, process and parse; <br/>
+        such is life for feed plugins.<br/>
+        You must declare yours.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>All feeds plugins are ctools based, examples on Fetchers/Parsers?. Not really sure feeds is implementing CTools plugins properly, need to confirm with twistor.</p>
+      </section>
+    </aside>     
+  </slide>          
+                 
+  <slide class="dark">
+    <hgroup>
+      <h2>Views Bulk Operations</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Adds a field handler<br/>
+        For a checkbox on each row.<br/>
+        Process with actions.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Example on how to extend action support through plugins</p>
+      </section>
+    </aside>     
+  </slide>  
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>DraggableViews</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Use the crosshair to<br/>
+        drag and drop your result rows.<br/>
+        Sort plugins will help.
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Example on how to extend the sort (I’ve got a real life example here)</p>
+      </section>
+    </aside>     
+  </slide>     
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Facet API</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Gold mine here... massive ctools support</p>
+      </section>
+    </aside>     
+  </slide>  
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Quicktabs</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+      </q>      
+    </article>   
+  </slide>    
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Flag</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Uses ctools for access plugins,need to confirm if they’re just using ctools_plugin_type hook incorrectly.</p>
+      </section>
+    </aside>     
+  </slide>  
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Addressfield</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Flexible address<br/>
+        to make zipcode optional.<br/>
+        With formats you win      
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Extend address support per country using plugins, plenty of examples here..</p>
+        <p>Not clear if we want to show this one. </p>
+      </section>
+    </aside>     
+  </slide> 
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Crumbs</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Evaluate the use of plugins here.</p>
+      </section>
+    </aside>     
+  </slide>  
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Open Layers</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+      </q>      
+    </article>
+    <aside class="note">
+      <section>
+        <p>Creates new plugin types and uses a lot of the exportables.</p>
+      </section>
+    </aside>     
+  </slide>    
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Bean</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Beans are not nodes but<br/>
+        block fieldable entities<br/>
+        Provide your own type.      
+      </q>      
+    </article>  
+  </slide>         
+  
+  <slide class="subtitle-slide segue nobackground">
+    <hgroup class="auto-fadein">
+      <h1>Extra ball</h1>
+      <h2>Ctools is much more than plugins</h2>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p>We could reserve some time to display further examples of Ctools use not for plugins, ajax, objects cache, form wizard, modals and so on..</p>
+      </section>
+    </aside>       
+  </slide>  
+  
+  <slide class="dark">
+    <hgroup>
+      <h2>Modal windows</h2>
+    </hgroup>  
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        User attention<br/>
+        Goes to the piece that pops up.<br/>
+        Don’t modal all things.     
+      </q>      
+    </article>  
+  </slide>   
+  
+  <slide class="subtitle-slide segue nobackground">
+    <hgroup class="auto-fadein">
+      <h1>Drupal 8 showtime!</h1>
+      <h2>Ctools is much more than plugins</h2>
+    </hgroup>
+    <aside class="note">
+      <section>
+        <p>To introduce the Drupal 8 session we can present briefly what parts of CTools have been introduced as core of Drupal 7 first and then get a little more deeper in D8.</p>
+      </section>
+    </aside>       
+  </slide>              
+  
+  <slide>
+    <hgroup>
+      <h2>Go to the D8 Plugin Deep Dive</h2>
+      <h3>We mean it, seriously</h3>
+    </hgroup>
+    <article>
+      <p>List of presenters and schedule info.</p>
+      <ul class="build">
+        <li>Item 1</li>
+      </ul>
+    </article>
+  </slide>   
+  
+  <slide class="fill nobackground" style="background-image: url(images/sky.jpg)">
+    <hgroup>
+      <h2 class="white">Questions? (search for a good image here)</h2>
+    </hgroup>
+    <footer class="source white">www.flickr.com/photos/25797459@N06/5438799763/</footer>
+  </slide>  
+  
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/drupalcon_pdx_icon_2.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <h3>What did you think?</h3>
+      <h3>Evaluate this session at: portland2013.drupal.org/schedule. </h3>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>  
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>

@@ -305,19 +305,18 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Entity Reference widget plugin selection</h2>
     </hgroup>
     <article>
+      <p><a href="http://drupal.org/project/commerce_coupon">Commerce coupon module</a>.</p>
       <pre class="prettyprint" data-lang="php">
 class EntityReference_SelectionHandler_Generic_commerce_coupon
   extends EntityReference_SelectionHandler_Generic {
   public function buildEntityFieldQuery($match = NULL, $match_operator = 'CONTAINS') {
     $query = parent::buildEntityFieldQuery($match, $match_operator);
-    // If there's a match, query the coupon code.
     if (isset($match)) {
       <b>$query->fieldCondition('commerce_coupon_code', 'value',
         $match, $match_operator)</b>;
     }
     return $query;
   }
-
   public function getLabel($entity) {
     $wrapper = entity_metadata_wrapper('commerce_coupon', $entity);
     <b>return $wrapper->commerce_coupon_code->value()</b>;
@@ -382,7 +381,7 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
 
   <slide>
     <hgroup>
-      <h2>Entity Reference widget plugin selection</h2>
+      <h2>Draggableviews sort plugin</h2>
     </hgroup>
     <article class="smaller">
       <pre class="prettyprint" data-lang="php">
@@ -420,11 +419,45 @@ class mymodule_list_handler extends draggableviews_handler {
       <q>
       </q>
     </article>
-    <aside class="note">
-      <section>
-        <p>Gold mine here... massive ctools support</p>
-      </section>
-    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Facet API filter plugin</h2>
+    </hgroup>
+    <article>
+      <img src="images/facetapi_filter_example.jpg" class="reflect" alt="Facet API filter plugin" title="Facet API filter plugin">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Facet API narrow results plugin</h2>
+    </hgroup>
+    <article class="smaller">
+      <p><a href="http://drupal.org/project/facetapi_bonus">Facet API bonus module</a>.</p>
+      <pre class="prettyprint" data-lang="php">
+class FacetapiFilterNarrowResults extends FacetapiFilter {
+(...)
+  /**
+   * Removes items that do not narrow search results.
+   */
+  protected function removeNotNarrowItems(&$items) {
+    foreach ($items as $key => $item) {
+      // Run recursively cleanup on all children.
+      if (!empty($item['#item_children'])) {
+        $this->removeNotNarrowItems($item['#item_children']);
+      }
+      // If item does not narrow results, does not have children and is
+      // not active we remove it.
+      <b>if ($item['#count'] == $this->count && empty($item['#item_children']) && !$item['#active']) {
+        unset($items[$key]);
+      }</b>
+    }
+  }
+}
+      </pre>
+    </article>
   </slide>
 
   <slide hidden class="dark nobackground">
@@ -454,11 +487,6 @@ class mymodule_list_handler extends draggableviews_handler {
       <q>
       </q>
     </article>
-    <aside class="note">
-      <section>
-        <p>Creates new plugin types and uses a lot of the exportables.</p>
-      </section>
-    </aside>
   </slide>
 
   <slide class="dark nobackground">
@@ -476,14 +504,75 @@ class mymodule_list_handler extends draggableviews_handler {
 
   <slide>
     <hgroup>
+      <h2>Declaring bean types</h2>
+    </hgroup>
+    <article class="smaller">
+      <p><a href="http://drupal.org/project/bean_twitter_pull">Bean twitter pull</a>.</p>
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Implements hook_bean_types().
+ */
+function bean_twitter_pull_bean_types() {
+  $plugins = array();
+  $plugin_path = drupal_get_path('module', 'bean_twitter_pull') . '/plugins/bean';
+  $plugins['twitter_pull'] = array(
+    'label' => t('Twitter Pull'),
+    'handler' => array(
+      'class' => 'TwitterPullBean',
+      'parent' => 'bean',
+    ),
+    'path' => $plugin_path,
+    'file' => 'bean_twitter_pull.inc',
+  );
+  return $plugins;
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Bean plugin details</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+class TwitterPullBean extends BeanPlugin {
+  /**
+   * Declares default block settings.
+   */
+  public function values() { (...) }
+  /**
+   * Builds extra settings for the block edit form.
+   */
+  public function form($bean, $form, &$form_state) { (...) }
+
+  /**
+   * Displays the bean.
+   */
+  <b>public function view($bean, $content, $view_mode = 'default', $langcode = NULL) {
+    $content['twitter_results']['#markup'] = twitter_pull_render($bean->settings['twitkey'],
+      FALSE, $bean->settings['num_items']);
+    return $content;
+  }</b>
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>Wait, there is more!</h2>
       <h3>Other modules providing plugin support</h3>
     </hgroup>
     <article>
       <ul>
+        <li><a href="http://drupal.org/project/views">Views</a></li>
+      </ul>
+      <ul>
         <li><a href="http://drupal.org/project/addressfield">Addressfield</a></li>
         <li><a href="http://drupal.org/project/crumbs">Crumbs</a></li>
         <li><a href="http://drupal.org/project/feeds">Feeds</a></li>
+        <li><a href="http://drupal.org/project/facetapi_pretty_paths">Facet API pretty paths</a></li>
         <li><a href="http://drupal.org/project/quicktabs">Quicktabs</a></li>
         <li><a href="http://drupal.org/project/views_bulk_operations">Views Bulk Operations</a></li>
       </ul>

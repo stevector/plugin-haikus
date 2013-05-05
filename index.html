@@ -380,6 +380,38 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
     </aside>
   </slide>
 
+  <slide>
+    <hgroup>
+      <h2>Entity Reference widget plugin selection</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+class mymodule_list_handler extends draggableviews_handler {
+  <b>public function get($field, $index)</b> {
+    return mymodule_list_preprocess($index);
+  }
+
+  <b>function set($form_state)</b> {
+    $sort_keys = array();
+    $view = $form_state['build_info']['args'][0];
+    $list = unserialize($view->args[2]);
+    $original_lines = $list->lines;
+    // Generate a helper array to sort the rows as the user has set them.
+    $sort_keys = mymodule_list_generate_sort_keys($form_state['values']['draggableviews']);
+
+    usort($list->lines, function($a, $b) use ($sort_keys) {
+      return ($sort_keys[$a->reference]['weight'] > $sort_keys[$b->reference]['weight']);
+    });
+    // Save the list if there's any change.
+    if ($list->lines <> $original_lines) {
+      mymodule_update_list($list);
+    }
+  }
+}
+      </pre>
+    </article>
+  </slide>
+
   <slide class="dark nobackground">
     <hgroup>
       <h2>Facet API</h2>

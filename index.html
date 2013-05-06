@@ -265,9 +265,119 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>How to use plugins outside of panels</h2>
     </hgroup>
     <article>
-      <p>Example of hook_ctools_plugin_type</p>
+      <p>Start implementing <b>hook_ctools_plugin_type</b>. <a href="http://drupalcode.org/project/ctools.git/blob_plain/refs/heads/7.x-1.x:/help/plugins-creating.html">Documentation</a>.</p>
+    </article>
+    <article class="smaller">
       <pre class="prettyprint" data-lang="php">
-        code
+function views_bulk_operations_ctools_plugin_type() {
+  return array(
+    'operation_types' => array(
+      'classes' => array(
+        'handler',
+      ),
+    ),
+  );
+}
+      </pre>
+      <pre class="prettyprint" data-lang="php">
+function addressfield_ctools_plugin_type() {
+  $plugins['format'] = array(
+    'load themes' => TRUE,
+  );
+  return $plugins;
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to use plugins outside of panels</h2>
+    </hgroup>
+    <article>
+      <p>Create a plugin structure in the module.</p>
+    </article>
+    <article class="centered">
+      <img src="images/vbo_file_structure.jpg" class="reflect" alt="Views bulk operations file structure" title="Views bulk operations file structure">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to use plugins outside of panels</h2>
+    </hgroup>
+    <article>
+      <p>Declare your plugin classes in a plugin.inc file.</p>
+      <pre class="prettyprint" data-lang="php">
+$plugin = array(
+  'title' => t('Action'),
+  'list callback' => 'views_bulk_operations_operation_action_list',
+  <b>'handler' => array(
+    'file' => 'action.class.php',
+    'class' => 'ViewsBulkOperationsAction',
+  ),</b>
+);
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to use plugins outside of panels</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Add a class.php file with the methods needed.</p>
+      <pre class="prettyprint" data-lang="php">
+class ViewsBulkOperationsAction extends ViewsBulkOperationsBaseOperation {
+(...)
+  public function access($account) {
+    if (module_exists('actions_permissions')) {
+      $perm = actions_permissions_get_perm($this->operationInfo['label'], $this->operationInfo['key']);
+      <b>if (!user_access($perm, $account)) {
+        return FALSE;
+      }</b>
+    }
+    if (!empty($this->operationInfo['permissions'])) {
+      foreach ($this->operationInfo['permissions'] as $perm) {
+        <b>if (!user_access($perm, $account)) {
+          return FALSE;
+        }</b>
+      }
+    }
+    <b>return TRUE;</b>
+  }
+(...)
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to use plugins outside of panels</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Example of use of the plugin.</p>
+      <pre class="prettyprint" data-lang="php">
+function views_bulk_operations_get_operation_type($operation_type) {
+  <b>ctools_include('plugins');
+  return ctools_get_plugins('views_bulk_operations', 'operation_types', $operation_type);</b>
+}
+      </pre>
+      <pre class="prettyprint" data-lang="php">
+public function get_selected_operations() {
+  global $user;
+  $selected = drupal_static(__FUNCTION__);
+  if (!isset($selected)) {
+    (...)
+      <b>$operation = views_bulk_operations_get_operation($operation_id, $entity_type, $options);
+      if (!$operation || !$operation->access($user)) {</b>
+        continue;
+      }
+      $selected[$operation_id] = $operation;
+    (...)
+  return $selected;
+}
       </pre>
     </article>
   </slide>
@@ -305,7 +415,7 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Entity Reference widget plugin selection</h2>
     </hgroup>
     <article>
-      <p><a href="http://drupal.org/project/commerce_coupon">Commerce coupon module</a>.</p>
+      <p class="smaller">Example from <a href="http://drupal.org/project/commerce_coupon">Commerce coupon</a>. Other example: <a href="http://drupal.org/project/webform_entity">Webform entity module</a>.</p>
       <pre class="prettyprint" data-lang="php">
 class EntityReference_SelectionHandler_Generic_commerce_coupon
   extends EntityReference_SelectionHandler_Generic {
@@ -562,7 +672,7 @@ class TwitterPullBean extends BeanPlugin {
   <slide>
     <hgroup>
       <h2>Wait, there is more!</h2>
-      <h3>Other modules providing plugin support</h3>
+      <h3>Other modules providing plugins support</h3>
     </hgroup>
     <article>
       <ul>
@@ -573,7 +683,9 @@ class TwitterPullBean extends BeanPlugin {
         <li><a href="http://drupal.org/project/crumbs">Crumbs</a></li>
         <li><a href="http://drupal.org/project/feeds">Feeds</a></li>
         <li><a href="http://drupal.org/project/facetapi_pretty_paths">Facet API pretty paths</a></li>
+        <li><a href="http://drupal.org/project/linkit">Linkit</a></li>
         <li><a href="http://drupal.org/project/quicktabs">Quicktabs</a></li>
+        <li><a href="http://drupal.org/project/tree">Tree</a></li>
         <li><a href="http://drupal.org/project/views_bulk_operations">Views Bulk Operations</a></li>
       </ul>
     </article>

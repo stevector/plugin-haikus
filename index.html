@@ -749,11 +749,6 @@ class TwitterPullBean extends BeanPlugin {
       <h1>Extra ball</h1>
       <h2>Ctools is much more than plugins</h2>
     </hgroup>
-    <aside class="note">
-      <section>
-        <p>We could reserve some time to display further examples of Ctools use not for plugins, ajax, objects cache, form wizard, modals and so on..</p>
-      </section>
-    </aside>
   </slide>
 
   <slide class="brown nobackground">
@@ -766,6 +761,63 @@ class TwitterPullBean extends BeanPlugin {
         Goes to the piece that pops up.<br/>
         Don’t modal all things.
       </q>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/modal-errors.png)">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Modals with CTools</h2>
+    </hgroup>
+    <article>
+      <p>Declare your modal callback with hook_menu()</p>
+      <pre class="prettyprint" data-lang="php">
+function simple_ass_modal_menu() {
+  $items = array();
+  $items['simple_ass_modal/%ctools_js/test'] = array(
+    'title' => 'Modal test',
+    'page callback' => 'simple_ass_modal_page',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+      </pre>
+      <p>Example <strike>stolen</strike> taken from <a href="http://awebfactory.com.ar/node/491">awebfactory</a>.</p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Modals with CTools</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Declare your modal callback with hook_menu()</p>
+      <pre class="prettyprint" data-lang="php">
+function simple_ass_modal_page() {
+  <b>ctools_include('ajax');
+  ctools_include('modal');
+  ctools_modal_add_js();</b>
+  $custom_style = array(
+    'my-simple-ass-modal-style' => array(
+      'modalSize' => array(
+        'type' => 'fixed',
+        'width' => 425,
+        'height' => 250,
+      ),
+      'animation' => 'fadeIn',
+    ),
+  );
+  drupal_add_js($custom_style, 'setting');
+  <b>$output = ctools_modal_text_button(t('Click Here'), 'simple_ass_modal/nojs/test/form', t('Pop me up'),
+    'ctools-modal-my-simple-ass-modal-style');</b>
+  $output .= '&lt;div id="modal-message"&gt;&nbsp&lt;/div&gt;';
+  ctools_include('plugins');
+  return $output;
+}
+      </pre>
     </article>
   </slide>
 

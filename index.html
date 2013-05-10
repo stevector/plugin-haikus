@@ -907,13 +907,71 @@ function simple_ass_modal_page() {
     ),
   );
   drupal_add_js($custom_style, 'setting');
-  <b>$output = ctools_modal_text_button(t('Click Here'), 'simple_ass_modal/nojs/test/form', t('Pop me up'),
-    'ctools-modal-my-simple-ass-modal-style');</b>
+  <b>$output = ctools_modal_text_button(t('Click Here'), 'simple_ass_modal/nojs/test/form',
+    t('Pop me up'), 'ctools-modal-my-simple-ass-modal-style');</b>
   $output .= '&lt;div id="modal-message"&gt;&nbsp&lt;/div&gt;';
   ctools_include('plugins');
   return $output;
 }
       </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Jump menus</h2>
+    </hgroup>
+    <article>
+      <p>Create a jump menu easily with CTools</p>
+    </article>
+    <article class="centered">
+      <img src="images/jump_menu.jpg" class="reflect" alt="Jump menu" title="Jump menu">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Jump menus</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Declare your modal callback with hook_menu()</p>
+      <pre class="prettyprint" data-lang="php">
+function ctools_example_jump_menu_page($form, &$form_state) {
+  $form = array();
+  $form['text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your textfield'),
+    '#default_value' => check_plain(arg(2)),
+  );
+  <b>$targets = array(
+    '/ctools_example/jump_menu/one' => t('One'),
+    '/ctools_example/jump_menu/two' => t('Two'),
+    '/ctools_example/jump_menu/three' => t('Three'),
+  );
+  ctools_include('jump-menu');
+  $form['jump_menu'] = drupal_get_form('ctools_jump_menu', $targets, array());</b>
+  return $form;
+}
+      </pre>
+    <p><a href="https://github.com/pcambra/ctools_jump_menu_example">Example link</a>. Also, see <a href="http://drupal.org/project/jump_menu"> Better Jump Menus</a> module.</p>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>But also all these other cool things</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Exportables</li>
+        <li>Object caching</li>
+        <li>Form wizard</li>
+        <li>CSS Tools</li>
+        <li>Dropdown buttons</li>
+        <li>Extra ajax commands</li>
+        <li>Entity autocomplete helper</li>
+      </ul>
     </article>
   </slide>
 

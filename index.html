@@ -158,15 +158,6 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h2>Add more contexts</h2>
-    </hgroup>
-    <article>
-      <img src="images/panels/contexts.png" alt="Contexts screen" title="Contexts screen" />
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
       <h2>Pick a Layout</h2>
     </hgroup>
     <article>
@@ -174,48 +165,23 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+
   <slide>
     <hgroup>
-      <h2>Put stuff in the layout</h2>
+      <h2>Did it work?</h2>
+      <h3>Put an author pic and bio in the side bar.</h3>
     </hgroup>
     <article>
-      <img src="images/panels/content-types-in-a-layout.png" alt="content type" title="content type" />
+    [Screen shot of final panel layout screen]
     </article>
   </slide>
 
-  <slide class="segue brown nobackground">
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        One function is the <br/>
-        reason the plugin exists.<br/>
-        Debug in there first.
-      </q>
-    </article>
-  </slide>
-
-  <slide class="brown nobackground">
+  <slide>
     <hgroup>
-      <h2>Relationship Plugins</h2>
+      <h2>Maybe the access plugin is not working</h2>
     </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Pass in a context.<br/>
-        And get another context.<br/>
-        It is that simple.
-      </q>
-    </article>
-  </slide>
-
-  <slide class="brown nobackground">
-    <hgroup>
-      <h2>Context Plugins</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        With standard classes <br/>
-        We don’t know an object’s type.<br/>
-        Wrap and label it.
-      </q>
+    <article>
+      <img src="images/panels/access-plugin-article.png" alt="Access plugin screen" title="Access plugin screen" />
     </article>
   </slide>
 
@@ -228,6 +194,99 @@ URL: https://code.google.com/p/io-2012-slides
         Give it a context<br/>
         And some configuration.<br/>
         Get back TRUE or FALSE.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Access Plugins</h2>
+      <h3>Return TRUE or FALSE</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+function _simplified_ctools_node_type_ctools_access_check($conf, $context) {
+  $node = $context->data;
+  if (array_key_exists($node->type, $conf['type'])) {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+      </pre>
+      <footer class="source">Real version at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/access/node_type.inc#l53">plugins/access/node_type.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+      <hgroup>
+      <h2>Debugging plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        The plugin exists<br/>
+        to implement one function.<br/>
+        Debug in there first.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Functions in the node_type access plugin</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+ctools_node_type_ctools_access_settings($form, &$form_state, $conf);
+ctools_node_type_ctools_access_settings_submit($form, &$form_state);
+ctools_node_type_ctools_access_check($conf, $context);
+ctools_node_type_ctools_access_restrictions($conf, &$context);
+ctools_node_type_ctools_access_summary($conf, $context);
+      </pre>
+      <footer class="source">Real code at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/access/node_type.inc#l53">plugins/access/node_type.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Relationship Plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Pass in a context,<br/>
+        and get another context.<br/>
+        It is that simple.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Node to Author relationship</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+function _simplified_ctools_user_from_node_context($context, $conf) {
+  $node = $context->data;
+  $uid = $node->uid;
+  $account = user_load($uid);
+  return ctools_context_create('user', $account);
+}
+      </pre>
+      <footer class="source">Real code at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/relationships/user_from_node.inc#l24">plugins/relationships/user_from_node.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Context Plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        With standard classes <br/>
+        We don’t know an object’s type.<br/>
+        Wrap and label it.
       </q>
     </article>
   </slide>

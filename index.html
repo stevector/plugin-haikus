@@ -284,10 +284,20 @@ function _simplified_ctools_user_from_node_context($context, $conf) {
     </hgroup>
     <article class="centered flexbox vleft auto-fadein">
       <q>
-        With standard classes <br/>
-        We don’t know an object’s type.<br/>
+        With standard classes,<br/>
+        we don’t know an object’s type.<br/>
         Wrap and label it.
       </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Content Type Plugins</h2>
+      <h3>No, the other kind of "content type"</h3>
+    </hgroup>
+    <article>
+      <img src="images/panels/content-type-browser.png" alt="content type" title="content type" />
     </article>
   </slide>
 
@@ -304,29 +314,26 @@ function _simplified_ctools_user_from_node_context($context, $conf) {
     </article>
   </slide>
 
-  <slide class="brown nobackground">
+  <slide>
     <hgroup>
-      <h2>Argument Plugins</h2>
+      <h2>Content Type Plugins</h2>
+      <h3>No, the other kind of "content type"</h3>
     </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Go from URL<br/>
-        strings to contexts and use them<br/>
-        in Page Manager.
-      </q>
-    </article>
-  </slide>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+function _simplified_ctools_node_content_type_render($subtype, $conf, $panel_args) {
+  $nid = $conf['nid'];
+  $block = new stdClass();
 
-  <slide class="brown nobackground">
-    <hgroup>
-      <h2>Layout Plugins</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Tell it your regions<br/>
-        And give it a TPL.<br/>
-        See it in Panels.
-      </q>
+  $node = node_load($nid);
+  $block->delta = $node->nid;
+  $block->title = check_plain($node->title);
+  $block->content = node_view($node, $conf['build_mode']);
+
+  return $block;
+}
+      </pre>
+      <footer class="source">Real version at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/content_types/node/node.inc#l36">plugins/content_types/node/node.inc</a></footer>
     </article>
   </slide>
 

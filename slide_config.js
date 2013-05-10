@@ -23,7 +23,7 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'Steve Persch',
-    company: 'Senior Engineer<br>Palantir',
+    company: 'Senior Engineer<br>Palantir.net',
     gplus: 'http://plus.google.com/1234567890',
     twitter: '@stevector',
     www: 'http://www.you.com',

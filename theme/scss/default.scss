@@ -15,7 +15,6 @@
   background-color: white;
 }
 
-
 /**
  * Theme Styles
  */
@@ -131,19 +130,30 @@ slides > slide {
       color: white !important;
     }
   }
-  
+
   &.light {
     h2 {
       color: $gray-4;
       font-size: 60px;
     }
-    
+
     h3 {
       color: $gray-4;
       line-height: 2.8;
-    }   
+    }
   }
-  
+
+  &.brown {
+    background: #360D01 !important;
+    h2 {
+      color: white !important;
+    }
+
+    q {
+      color: white;
+    }
+  }
+
   &:not(.nobackground) {
     //background: white url(../../images/google_developers_icon_128.png) ($brand-small-icon-size * 2) 98% no-repeat;
     //@include background-size($brand-small-icon-size $brand-small-icon-size);
@@ -524,8 +534,9 @@ table {
 }
 
 q {
-  font-size: 45px;
+  font-size: 60px;
   line-height: 72px;
+  font-family: 'Signika', sans-serif;
 
   &:before {
     content: '“';
@@ -659,7 +670,7 @@ article.smaller {
     @include box-shadow(0 0 10px $gray-3);
     width: 60%;
     padding: 2em;
-    
+
       > p {
         color: $gray-4;
       }
@@ -984,7 +995,7 @@ aside.gdbar {
       display: none !important;
     }
   }
-  
+
   slides {
     slide {
       &.backdrop {

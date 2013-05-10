@@ -115,11 +115,11 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>What is CTools?</h2>
       <h3>Acronym for Chaos Tools</h3>
     </hgroup>
-    <article>
-      <p>A list where items build:</p>
-      <ul class="build">
-        <li>Item 1</li>
-      </ul>
+    <article class="definition">
+      <p>This suite is primarily a set of APIs and tools to improve the developer experience. It also contains a module called the Page Manager whose job is to manage pages. In particular it manages panel pages, but as it grows it will be able to manage <b>far more than just Panels</b>.</p>
+    <footer class="source">
+      <a href="http://drupal.org/project/ctools">CTools project page</a>
+    </footer>
     </article>
   </slide>
 
@@ -408,7 +408,7 @@ function _simplified_ctools_node_content_type_render($subtype, $conf, $panel_arg
 
   <slide>
     <hgroup>
-      <h2>How to use plugins outside of panels</h2>
+      <h2>How to create your own plugins</h2>
     </hgroup>
     <article>
       <p>Start implementing <b>hook_ctools_plugin_type</b>. <a href="http://drupalcode.org/project/ctools.git/blob_plain/refs/heads/7.x-1.x:/help/plugins-creating.html">Documentation</a>.</p>
@@ -438,7 +438,7 @@ function addressfield_ctools_plugin_type() {
 
   <slide>
     <hgroup>
-      <h2>How to use plugins outside of panels</h2>
+      <h2>How to create your own plugins</h2>
     </hgroup>
     <article>
       <p>Create a plugin structure in the module.</p>
@@ -450,7 +450,7 @@ function addressfield_ctools_plugin_type() {
 
   <slide>
     <hgroup>
-      <h2>How to use plugins outside of panels</h2>
+      <h2>How to create your own plugins</h2>
     </hgroup>
     <article>
       <p>Declare your plugin classes in a plugin.inc file.</p>
@@ -469,7 +469,7 @@ $plugin = array(
 
   <slide>
     <hgroup>
-      <h2>How to use plugins outside of panels</h2>
+      <h2>How to create your own plugins</h2>
     </hgroup>
     <article class="smaller">
       <p>Add a class.php file with the methods needed.</p>
@@ -500,15 +500,15 @@ class ViewsBulkOperationsAction extends ViewsBulkOperationsBaseOperation {
 
   <slide>
     <hgroup>
-      <h2>How to use plugins outside of panels</h2>
+      <h2>How to create your own plugins</h2>
     </hgroup>
     <article class="smaller">
       <p>Example of use of the plugin.</p>
       <pre class="prettyprint" data-lang="php">
-function views_bulk_operations_get_operation_type($operation_type) {
-  <b>ctools_include('plugins');
-  return ctools_get_plugins('views_bulk_operations', 'operation_types', $operation_type);</b>
-}
+<b>function views_bulk_operations_get_operation_type($operation_type) {
+  ctools_include('plugins');
+  return ctools_get_plugins('views_bulk_operations', 'operation_types', $operation_type);
+}</b>
       </pre>
       <pre class="prettyprint" data-lang="php">
 public function get_selected_operations() {
@@ -561,7 +561,6 @@ public function get_selected_operations() {
       <h2>Entity Reference widget plugin selection</h2>
     </hgroup>
     <article>
-      <p class="smaller">Example from <a href="http://drupal.org/project/commerce_coupon">Commerce coupon</a>. Other example: <a href="http://drupal.org/project/webform_entity">Webform entity module</a>.</p>
       <pre class="prettyprint" data-lang="php">
 class EntityReference_SelectionHandler_Generic_commerce_coupon
   extends EntityReference_SelectionHandler_Generic {
@@ -578,6 +577,7 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
     <b>return $wrapper->commerce_coupon_code->value()</b>;
   }
       </pre>
+    <footer class="source">Example from <a href="http://drupal.org/project/commerce_coupon">Commerce coupon</a>. Other example: <a href="http://drupal.org/project/webform_entity">Webform entity module</a>.</footer>
     </article>
   </slide>
 
@@ -694,7 +694,6 @@ class mymodule_list_handler extends draggableviews_handler {
       <h2>Facet API narrow results plugin</h2>
     </hgroup>
     <article class="smaller">
-      <p><a href="http://drupal.org/project/facetapi_bonus">Facet API bonus module</a>.</p>
       <pre class="prettyprint" data-lang="php">
 class FacetapiFilterNarrowResults extends FacetapiFilter {
 (...)
@@ -716,6 +715,7 @@ class FacetapiFilterNarrowResults extends FacetapiFilter {
   }
 }
       </pre>
+      <footer class="source"><a href="http://drupal.org/project/facetapi_bonus">Facet API bonus module</a>.</footer>
     </article>
   </slide>
 
@@ -824,10 +824,10 @@ class TwitterPullBean extends BeanPlugin {
       <h3>Other modules providing plugins support</h3>
     </hgroup>
     <article>
-      <ul>
+      <ul class="build">
         <li><a href="http://drupal.org/project/views">Views</a></li>
       </ul>
-      <ul>
+      <ul class="build">
         <li><a href="http://drupal.org/project/addressfield">Addressfield</a></li>
         <li><a href="http://drupal.org/project/crumbs">Crumbs</a></li>
         <li><a href="http://drupal.org/project/feeds">Feeds</a></li>
@@ -872,7 +872,7 @@ class TwitterPullBean extends BeanPlugin {
       <pre class="prettyprint" data-lang="php">
 function simple_ass_modal_menu() {
   $items = array();
-  $items['simple_ass_modal/%ctools_js/test'] = array(
+  $items['simple_ass_modal/<b>%ctools_js</b>/test'] = array(
     'title' => 'Modal test',
     'page callback' => 'simple_ass_modal_page',
     'access arguments' => array('access content'),
@@ -881,7 +881,7 @@ function simple_ass_modal_menu() {
   return $items;
 }
       </pre>
-      <p>Example <strike>stolen</strike> taken from <a href="http://awebfactory.com.ar/node/491">awebfactory</a>.</p>
+      <footer class="source">Example <strike>stolen</strike> taken from <a href="http://awebfactory.com.ar/node/491">awebfactory</a>.</footer>
     </article>
   </slide>
 
@@ -924,7 +924,7 @@ function simple_ass_modal_page() {
     <article>
       <p>Create a jump menu easily with CTools</p>
     </article>
-    <article class="centered">
+    <article class="build centered">
       <img src="images/jump_menu.jpg" class="reflect" alt="Jump menu" title="Jump menu">
     </article>
   </slide>
@@ -953,7 +953,7 @@ function ctools_example_jump_menu_page($form, &$form_state) {
   return $form;
 }
       </pre>
-    <p><a href="https://github.com/pcambra/ctools_jump_menu_example">Example link</a>. Also, see <a href="http://drupal.org/project/jump_menu"> Better Jump Menus</a> module.</p>
+    <footer class="source"><a href="https://github.com/pcambra/ctools_jump_menu_example">Example link</a>. Also, see <a href="http://drupal.org/project/jump_menu"> Better Jump Menus</a> module.</footer>
     </article>
   </slide>
 

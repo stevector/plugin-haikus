@@ -150,6 +150,7 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
+
   <slide>
     <hgroup>
       <h2>The complexity of this screen is a clue</h2>
@@ -253,11 +254,17 @@ function _simplified_ctools_node_type_ctools_access_check($conf, $context) {
     </article>
   </slide>
 
+
+<!-- @todo creen shot. haiku. code -->
+
   <slide>
     <hgroup>
       <h2>Functions in the node_type access plugin</h2>
     </hgroup>
     <article>
+
+    <!-- @todo highliight access  -->
+
       <pre class="prettyprint" data-lang="php">
 ctools_node_type_ctools_access_settings($form, &$form_state, $conf);
 ctools_node_type_ctools_access_settings_submit($form, &$form_state);
@@ -299,6 +306,8 @@ function _simplified_ctools_user_from_node_context($context, $conf) {
     </article>
   </slide>
 
+
+<!--  @todo context before relationship  -->
   <slide class="brown nobackground">
     <hgroup>
       <h2>Context Plugins</h2>
@@ -311,6 +320,8 @@ function _simplified_ctools_user_from_node_context($context, $conf) {
       </q>
     </article>
   </slide>
+
+  <!-- @todo another slide for context  -->
 
   <slide>
     <hgroup>
@@ -344,9 +355,9 @@ function _simplified_ctools_user_from_node_context($context, $conf) {
       <pre class="prettyprint" data-lang="php">
 function _simplified_ctools_node_content_type_render($subtype, $conf, $panel_args) {
   $nid = $conf['nid'];
-  $block = new stdClass();
-
   $node = node_load($nid);
+
+  $block = new stdClass();
   $block->delta = $node->nid;
   $block->title = check_plain($node->title);
   $block->content = node_view($node, $conf['build_mode']);
@@ -435,6 +446,17 @@ function addressfield_ctools_plugin_type() {
       </pre>
     </article>
   </slide>
+
+
+
+<!--  @todo Layout -->
+<!--
+On the edge of the Panels universe.
+Mini Panels Export UI.
+Child plugins
+-->
+
+
 
   <slide>
     <hgroup>

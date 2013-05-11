@@ -144,7 +144,7 @@ slides > slide {
   }
 
   &.brown {
-    background: #360D01 !important;
+    background: $brown !important;
     h2 {
       color: white !important;
     }
@@ -214,6 +214,20 @@ slides > slide {
 
     p {
       margin-bottom: 1em;
+    }
+
+    &.definition {
+      margin-left: 10%;
+      margin-right: 10%;
+
+        p {
+          font-size: 170%;
+          line-height: 105%;
+
+          b {
+            color: $brown;
+          }
+        }
     }
   }
 

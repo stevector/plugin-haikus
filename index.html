@@ -570,7 +570,7 @@ $plugin = array(
       <p>Add a class.php file with the methods needed.</p>
       <pre class="prettyprint" data-lang="php">
 class ViewsBulkOperationsAction extends ViewsBulkOperationsBaseOperation {
-(...)
+(&hellip;)
   public function access($account) {
     if (module_exists('actions_permissions')) {
       $perm = actions_permissions_get_perm($this->operationInfo['label'], $this->operationInfo['key']);
@@ -587,7 +587,7 @@ class ViewsBulkOperationsAction extends ViewsBulkOperationsBaseOperation {
     }
     <b>return TRUE;</b>
   }
-(...)
+(&hellip;)
 }
       </pre>
     </article>
@@ -610,13 +610,13 @@ public function get_selected_operations() {
   global $user;
   $selected = drupal_static(__FUNCTION__);
   if (!isset($selected)) {
-    (...)
+    (&hellip;)
       <b>$operation = views_bulk_operations_get_operation($operation_id, $entity_type, $options);
       if (!$operation || !$operation->access($user)) {</b>
         continue;
       }
       $selected[$operation_id] = $operation;
-    (...)
+    (&hellip;)
   return $selected;
 }
       </pre>
@@ -789,7 +789,7 @@ class mymodule_list_handler extends draggableviews_handler {
       <q>
         Make your search pages<br/>
         more rich and interesting<br/>
-        Just... one... more... facet.
+        Just&hellip; one&hellip; more&hellip; facet.
       </q>
     </article>
   </slide>
@@ -905,7 +905,115 @@ class FacetapiFilterNarrowResults extends FacetapiFilter {
     </hgroup>
     <article class="centered flexbox vleft auto-fadein">
       <q>
+        On a map layer<br/>
+        anything can be displayed.<br/>
+        JS is precious.
       </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers map layers & styles</h2>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_layers_styles.png" class="reflect" alt="OpenLayers styles" title="OpenLayers styles">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers map behaviors</h2>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_behaviors.png" class="reflect" alt="OpenLayers behaviors" title="OpenLayers behaviors">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers behavior plugin example</h2>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_ol_popups.png" class="reflect" alt="OpenLayers Feature Popups" title="OpenLayers Feature Popups">
+      <footer class="source"><a href="http://drupal.org/project/olfp">OpenLayers Feature Popups</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers Feature Popups</h2>
+      <h3>Hover effects</h3>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_map2.png" class="reflect" alt="Open layers behaviors" title="Open layers behaviors">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers Feature Popups</h2>
+      <h3>Persistent popups</h3>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_map3.png" class="reflect" alt="Open layers behaviors" title="Open layers behaviors">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers behavior plugins</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Ctools plugin definition.
+ */
+function olfp_openlayers_behavior_fp_openlayers_behaviors() {
+  return array(
+    'title' => t('OL Feature Popups'),
+    'description' => t('OL Feature Popups: Provide an easy way to manage popups.'),
+    'type' => 'layer',
+    <b>'behavior' => array(
+      'file' => 'openlayers_behavior_fp.inc',
+      'class' => 'openlayers_behavior_fp',
+      'parent' => 'openlayers_behavior',
+    ),</b>
+    'group' => 'Info boxes'
+  );
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers behavior plugins</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Attribution Behavior
+ */
+class openlayers_behavior_fp extends openlayers_behavior {
+  function options_init() {(&hellip;)}
+  function options_form() {(&hellip;)}
+  /**
+   * Render.
+   */
+  <b>function render(&$map) {</b>
+    // Add the OL Feature Popups extension.
+    if ($path = _olfp_get_path()) {
+      drupal_add_js($path . '/lib/patches_OL-popup-autosize.js');
+      drupal_add_js($path . '/lib/FeaturePopups.js');
+    }
+    drupal_add_css(drupal_get_path('module', 'olfp') . '/olfp.css', array('weight' => 12));
+    <b>drupal_add_js(drupal_get_path('module', 'olfp') .
+      '/openlayers_plugins/behaviors/openlayers_behavior_fp.js', array('weight' => 12));</b>
+    return $this->options;
+  }
+}
+      </pre>
     </article>
   </slide>
 
@@ -960,11 +1068,11 @@ class TwitterPullBean extends BeanPlugin {
   /**
    * Declares default block settings.
    */
-  public function values() { (...) }
+  public function values() { (&hellip;) }
   /**
    * Builds extra settings for the block edit form.
    */
-  public function form($bean, $form, &$form_state) { (...) }
+  public function form($bean, $form, &$form_state) { (&hellip;) }
 
   /**
    * Displays the bean.
@@ -1158,7 +1266,7 @@ function ctools_example_jump_menu_page($form, &$form_state) {
       <h2>Go to the D8 Plugin System Deep Dive</h2>
       <h3>We mean it, seriously</h3>
     </hgroup>
-    <article>
+    <article class="flexbox vleft">
       <p>
         <a href="http://portland2013.drupal.org/node/2458">
           Thursday, Hall A1 - Acquia

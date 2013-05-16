@@ -241,7 +241,7 @@ blurb
 
   <slide>
     <hgroup>
-      <h2>The complexity of this screen is a clue</h2>
+      <h2>Panels starts with a complex screen</h2>
     </hgroup>
     <article>
       <img src="images/panels/panels-overview.png" alt="Node page config" title="Node page config" />
@@ -288,10 +288,9 @@ blurb
   <slide>
     <hgroup>
       <h2>Did it work?</h2>
-      <h3>Put an author pic and bio in the side bar.</h3>
     </hgroup>
     <article>
-       <img src="images/panels/panels-end-result.png" alt="Panels end result" title="Panels end result" />
+       <img src="images/panels/panels-end-result--did-it-work.png" alt="Panels end result" title="Panels end result" />
     </article>
   </slide>
 
@@ -351,7 +350,6 @@ function _simplified_ctools_node_type_ctools_access_check($conf, $context) {
     </article>
   </slide>
 
-
 <!-- @todo screen shot. haiku. code -->
 
   <slide>
@@ -396,18 +394,51 @@ ctools_node_type_ctools_access_summary($conf, $context);
 
   <slide>
     <hgroup>
-      <h2>@todo, add context function slide</h2>
+      <h2>Context Plugin code</h2>
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="php">
+function _simplified_ctools_context_create_node($empty, $data = NULL, $conf = FALSE) {
+
+  $nid = is_array($data) && isset($data['nid']) ? $data['nid'] : (is_object($data) ? $data->nid : 0);
+  $node = node_load($nid);
+
+  $context = new ctools_context('node');
+  $context->plugin = 'node';
+  $context->data     = $node;
+  $context->title    = $node->title;
+  $context->argument = $node->nid;
+  $context->restrictions['type'] = array($node->type);
+
+  return $context;
+}
       </pre>
-      <footer class="source">Real code at: <a href=""></a></footer>
+      <footer class="source">Real code at: <a href="http://drupalcode.org/project/ctools.git/blob/refs/heads/7.x-1.x:/plugins/contexts/node.inc#l38">plugins/contexts/node.inc</a></footer>
     </article>
   </slide>
 
-
-
-  <!-- @todo another slide for context  -->
+  <slide>
+    <hgroup>
+      <h2>Second Reminder</h2>
+      <h3>Go to the D8 Plugin System Deep Dive session</h3>
+    </hgroup>
+    <article>
+      <p>
+        <a href="http://portland2013.drupal.org/node/2458">
+          Thursday, Hall A1 - Acquia
+        </a><br>
+      </p>
+      <p>
+        <b>Presented by:</b>
+      </p>
+      <ul>
+        <li>Kris Vanderwater - EclipseGc</li>
+        <li>James Gilliland - neclimdul </li>
+        <li>Tim Plunkett - tim.plunkett</li>
+        <li>Alex Bronstein - effulgentsia</li>
+      </ul>
+    </article>
+  </slide>
 
 
   <slide class="brown nobackground">
@@ -483,6 +514,59 @@ function _simplified_ctools_node_content_type_render($subtype, $conf, $panel_arg
 }
       </pre>
       <footer class="source">Real version at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/content_types/node/node.inc#l36">plugins/content_types/node/node.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Where to begin debugging?</h2>
+      <h3>Remember, we're just concatenating strings</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+<b>ctools_node_content_type_render($subtype, $conf, $panel_args);</b>
+ctools_node_content_type_edit_form($form, &$form_state);
+ctools_node_content_type_edit_form_validate(&$form, &$form_state);
+ctools_node_content_type_edit_form_submit($form, &$form_state);
+ctools_node_content_type_admin_title($subtype, $conf);
+ctools_node_content_type_admin_info($subtype, $conf);
+      </pre>
+      <footer class="source">Real version at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/content_types/node/node.inc#l36">plugins/content_types/node/node.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+      <hgroup>
+      <h2>A repeated haiku</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        The plugin exists<br/>
+        to implement one function.<br/>
+        Debug in there first.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>One more content type example</h2>
+      <h3>Views Content Panes</h3>
+    </hgroup>
+    <article>
+    @todo, two screen shots. Views side and panels side
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Go straight to the big render function</h2>
+    </hgroup>
+    <article>
+      <!-- @todo, height is not working on iframe -->
+      <iframe height="80%" src="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/views_content/plugins/content_types/views_panes.inc#l198">
+      </iframe>
+      <footer class="source"><a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/views_content/plugins/content_types/views_panes.inc#l198">views_content/plugins/content_types/views_panes.inc</a></footer>
     </article>
   </slide>
 

@@ -1048,6 +1048,14 @@ aside.gdbar {
   }
 }
 
+.grass-wagon {
+  background-image: url("../../images/grass-wagon.png");
+  background-position: center -25px;
+  background-repeat: no-repeat;
+  height: 230px;
+  width: 100%;
+}
+
 @media print {
   slides {
     slide {

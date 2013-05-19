@@ -624,6 +624,171 @@ ctools_node_content_type_admin_info($subtype, $conf);
     </article>
   </slide>
 
+<!--  @todo Layout -->
+<!--
+On the edge of the Panels universe.
+Mini Panels Export UI.
+Child plugins
+-->
+
+  <slide>
+    <hgroup>
+      <h2>Declaring bean types</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Implements hook_bean_types().
+ */
+function bean_twitter_pull_bean_types() {
+  $plugins = array();
+  $plugin_path = drupal_get_path('module', 'bean_twitter_pull') . '/plugins/bean';
+  $plugins['twitter_pull'] = array(
+    'label' => t('Twitter Pull'),
+    'handler' => array(
+      'class' => 'TwitterPullBean',
+      'parent' => 'bean',
+    ),
+    'path' => $plugin_path,
+    'file' => 'bean_twitter_pull.inc',
+  );
+  return $plugins;
+}
+      </pre>
+    <footer class="source"><a href="http://drupal.org/project/bean_twitter_pull">Bean twitter pull</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Bean plugin details</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+class TwitterPullBean extends BeanPlugin {
+  /**
+   * Declares default block settings.
+   */
+  public function values() { (&hellip;) }
+  /**
+   * Builds extra settings for the block edit form.
+   */
+  public function form($bean, $form, &$form_state) { (&hellip;) }
+
+  /**
+   * Displays the bean.
+   */
+  <b>public function view($bean, $content, $view_mode = 'default', $langcode = NULL) {
+    $content['twitter_results']['#markup'] = twitter_pull_render($bean->settings['twitkey'],
+      FALSE, $bean->settings['num_items']);
+    return $content;
+  }</b>
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Bean</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Beans are not nodes but<br/>
+        block fieldable entities<br/>
+        Provide your own type.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Altering entity reference widget forms</h2>
+      <h3>How a plugin approach helps?</h3>
+    </hgroup>
+    <article>
+      <img src="images/coupon_screen.png" class="reflect" alt="Entity Reference with coupons" title="Entity reference widget with coupons">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Entity Reference widget plugin selection</h2>
+    </hgroup>
+    <article>
+      <img src="images/entity_reference_coupon.jpg" class="reflect" alt="Entity Reference with coupons" title="Entity reference widget with coupons">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Entity Reference widget plugin selection</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+class EntityReference_SelectionHandler_Generic_commerce_coupon
+  extends EntityReference_SelectionHandler_Generic {
+  public function buildEntityFieldQuery($match = NULL, $match_operator = 'CONTAINS') {
+    $query = parent::buildEntityFieldQuery($match, $match_operator);
+    if (isset($match)) {
+      <b>$query->fieldCondition('commerce_coupon_code', 'value',
+        $match, $match_operator)</b>;
+    }
+    return $query;
+  }
+  public function getLabel($entity) {
+    $wrapper = entity_metadata_wrapper('commerce_coupon', $entity);
+    <b>return $wrapper->commerce_coupon_code->value()</b>;
+  }
+      </pre>
+    <footer class="source">Example from <a href="http://drupal.org/project/commerce_coupon">Commerce coupon</a>. Other example: <a href="http://drupal.org/project/webform_entity">Webform entity module</a>.</footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Entity Reference</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Even field module<br/>
+        Has plugins extending it.<br/>
+        Beats huge form alters.
+      </q>
+    </article>
+  </slide>
+
+  <slide hidden class="brown nobackground">
+    <hgroup>
+      <h2>Feeds</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Fetch, process and parse; <br/>
+        such is life for feed plugins.<br/>
+        You must declare yours.
+      </q>
+    </article>
+    <aside class="note">
+      <section>
+        <p>All feeds plugins are ctools based, examples on Fetchers/Parsers?. Not really sure feeds is implementing CTools plugins properly, need to confirm with twistor.</p>
+      </section>
+    </aside>
+  </slide>
+
+  <slide hidden class="brown nobackground">
+    <hgroup>
+      <h2>Views Bulk Operations</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Adds a field handler<br/>
+        For a checkbox on each row.<br/>
+        Process with actions.
+      </q>
+    </article>
+  </slide>
+
   <slide>
     <hgroup>
       <h2>How to create your own plugins</h2>
@@ -653,17 +818,6 @@ function addressfield_ctools_plugin_type() {
       </pre>
     </article>
   </slide>
-
-
-
-<!--  @todo Layout -->
-<!--
-On the edge of the Panels universe.
-Mini Panels Export UI.
-Child plugins
--->
-
-
 
   <slide>
     <hgroup>
@@ -757,103 +911,13 @@ public function get_selected_operations() {
     </article>
   </slide>
 
-  <slide class="brown nobackground">
-    <hgroup>
-      <h2>Entity Reference</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Even field module<br/>
-        Has plugins extending it.<br/>
-        Beats huge form alters.
-      </q>
-    </article>
-    <aside class="note">
-      <section>
-        <p>Review Haiku</p>
-        <p>What’s a behavior and examples on how to extend it.</p>
-      </section>
-    </aside>
-  </slide>
-
   <slide>
     <hgroup>
-      <h2>Altering entity reference widget forms</h2>
-      <h3>How a plugin approach helps?</h3>
+      <h2>Drag all the kittens!</h2>
     </hgroup>
-    <article>
-      <img src="images/coupon_screen.png" class="reflect" alt="Entity Reference with coupons" title="Entity reference widget with coupons">
+    <article class="build centered">
+      <img src="images/draggableviews.gif" class="reflect" alt="Draggableviews example" title="Draggableviews example">
     </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Entity Reference widget plugin selection</h2>
-    </hgroup>
-    <article>
-      <img src="images/entity_reference_coupon.jpg" class="reflect" alt="Entity Reference with coupons" title="Entity reference widget with coupons">
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Entity Reference widget plugin selection</h2>
-    </hgroup>
-    <article>
-      <pre class="prettyprint" data-lang="php">
-class EntityReference_SelectionHandler_Generic_commerce_coupon
-  extends EntityReference_SelectionHandler_Generic {
-  public function buildEntityFieldQuery($match = NULL, $match_operator = 'CONTAINS') {
-    $query = parent::buildEntityFieldQuery($match, $match_operator);
-    if (isset($match)) {
-      <b>$query->fieldCondition('commerce_coupon_code', 'value',
-        $match, $match_operator)</b>;
-    }
-    return $query;
-  }
-  public function getLabel($entity) {
-    $wrapper = entity_metadata_wrapper('commerce_coupon', $entity);
-    <b>return $wrapper->commerce_coupon_code->value()</b>;
-  }
-      </pre>
-    <footer class="source">Example from <a href="http://drupal.org/project/commerce_coupon">Commerce coupon</a>. Other example: <a href="http://drupal.org/project/webform_entity">Webform entity module</a>.</footer>
-    </article>
-  </slide>
-
-  <slide hidden class="brown nobackground">
-    <hgroup>
-      <h2>Feeds</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Fetch, process and parse; <br/>
-        such is life for feed plugins.<br/>
-        You must declare yours.
-      </q>
-    </article>
-    <aside class="note">
-      <section>
-        <p>All feeds plugins are ctools based, examples on Fetchers/Parsers?. Not really sure feeds is implementing CTools plugins properly, need to confirm with twistor.</p>
-      </section>
-    </aside>
-  </slide>
-
-  <slide hidden class="brown nobackground">
-    <hgroup>
-      <h2>Views Bulk Operations</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Adds a field handler<br/>
-        For a checkbox on each row.<br/>
-        Process with actions.
-      </q>
-    </article>
-    <aside class="note">
-      <section>
-        <p>Example on how to extend action support through plugins</p>
-      </section>
-    </aside>
   </slide>
 
   <slide class="brown nobackground">
@@ -872,15 +936,6 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
         <p>Example on how to extend the sort (I’ve got a real life example here)</p>
       </section>
     </aside>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Drag all the kittens!</h2>
-    </hgroup>
-    <article class="centered">
-      <img src="images/draggableviews.gif" class="reflect" alt="Draggableviews example" title="Draggableviews example">
-    </article>
   </slide>
 
   <slide>
@@ -912,19 +967,6 @@ class mymodule_list_handler extends draggableviews_handler {
   }
 }
       </pre>
-    </article>
-  </slide>
-
-  <slide class="brown nobackground">
-    <hgroup>
-      <h2>Facet API</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Make your search pages<br/>
-        more rich and interesting<br/>
-        Just&hellip; one&hellip; more&hellip; facet.
-      </q>
     </article>
   </slide>
 
@@ -1014,6 +1056,19 @@ class FacetapiFilterNarrowResults extends FacetapiFilter {
     </article>
   </slide>
 
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Facet API</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Make your search pages<br/>
+        more rich and interesting<br/>
+        Just&hellip; one&hellip; more&hellip; facet.
+      </q>
+    </article>
+  </slide>
+
   <slide hidden class="brown nobackground">
     <hgroup>
       <h2>Addressfield</h2>
@@ -1031,19 +1086,6 @@ class FacetapiFilterNarrowResults extends FacetapiFilter {
         <p>Not clear if we want to show this one. </p>
       </section>
     </aside>
-  </slide>
-
-  <slide class="brown nobackground">
-    <hgroup>
-      <h2>Open Layers</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        On a map layer<br/>
-        anything can be displayed.<br/>
-        JS is precious.
-      </q>
-    </article>
   </slide>
 
   <slide>
@@ -1091,6 +1133,19 @@ class FacetapiFilterNarrowResults extends FacetapiFilter {
     </hgroup>
     <article class="centered">
       <img src="images/openlayers_map3.png" class="reflect" alt="Open layers behaviors" title="Open layers behaviors">
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Open Layers</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        On a map layer<br/>
+        anything can be displayed.<br/>
+        JS is precious.
+      </q>
     </article>
   </slide>
 
@@ -1146,76 +1201,6 @@ class openlayers_behavior_fp extends openlayers_behavior {
       '/openlayers_plugins/behaviors/openlayers_behavior_fp.js', array('weight' => 12));</b>
     return $this->options;
   }
-}
-      </pre>
-    </article>
-  </slide>
-
-  <slide class="brown nobackground">
-    <hgroup>
-      <h2>Bean</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Beans are not nodes but<br/>
-        block fieldable entities<br/>
-        Provide your own type.
-      </q>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Declaring bean types</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="php">
-/**
- * Implements hook_bean_types().
- */
-function bean_twitter_pull_bean_types() {
-  $plugins = array();
-  $plugin_path = drupal_get_path('module', 'bean_twitter_pull') . '/plugins/bean';
-  $plugins['twitter_pull'] = array(
-    'label' => t('Twitter Pull'),
-    'handler' => array(
-      'class' => 'TwitterPullBean',
-      'parent' => 'bean',
-    ),
-    'path' => $plugin_path,
-    'file' => 'bean_twitter_pull.inc',
-  );
-  return $plugins;
-}
-      </pre>
-    <footer class="source"><a href="http://drupal.org/project/bean_twitter_pull">Bean twitter pull</a></footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Bean plugin details</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="php">
-class TwitterPullBean extends BeanPlugin {
-  /**
-   * Declares default block settings.
-   */
-  public function values() { (&hellip;) }
-  /**
-   * Builds extra settings for the block edit form.
-   */
-  public function form($bean, $form, &$form_state) { (&hellip;) }
-
-  /**
-   * Displays the bean.
-   */
-  <b>public function view($bean, $content, $view_mode = 'default', $langcode = NULL) {
-    $content['twitter_results']['#markup'] = twitter_pull_render($bean->settings['twitkey'],
-      FALSE, $bean->settings['num_items']);
-    return $content;
-  }</b>
 }
       </pre>
     </article>

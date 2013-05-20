@@ -104,7 +104,7 @@ close div close div sigh
     </article>
   </slide>
 
-  <slide>
+  <slide class="nobackground">
     <hgroup>
       <h2>Steve Persch</h2>
       <h3></h3>
@@ -145,7 +145,7 @@ close div close div sigh
     </footer>
   </slide>
 
-  <slide>
+  <slide class="nobackground">
     <hgroup>
       <h2>Obligatory shout-out to Earl Miles</h2>
       <h3><a href="http://drupal.org/user/26979">merlinofchaos</a> on Drupal.org</h3>
@@ -169,7 +169,7 @@ close div close div sigh
     </article>
   </slide>
 
-  <slide>
+  <slide class="nobackground">
     <hgroup>
       <h2>What is CTools?</h2>
       <h3>Acronym for Chaos Tools</h3>
@@ -861,8 +861,33 @@ function addressfield_ctools_plugin_type() {
       <h2>How to create your own plugins</h2>
     </hgroup>
     <article>
-      <p>Create a plugin structure in the module.</p>
+      <p>Define your plugin directory with <b>hook_ctools_plugin_directory</b>.</p>
     </article>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function views_bulk_operations_ctools_plugin_directory($module, $plugin) {
+  <b>if ($module == 'views_bulk_operations') {
+    return 'plugins/' . $plugin;
+  }</b>
+}
+      </pre>
+      <pre class="prettyprint" data-lang="php">
+function draggableviews_ctools_plugin_directory($module, $plugin) {
+  if (($module == 'draggableviews') && ($plugin == 'handler' || $plugin == 'hierarchy_handler')) {
+    return 'handlers';
+  }
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+      <h2>How to create your own plugins</h2>
+    </hgroup>
     <article class="centered">
       <img src="images/vbo_file_structure.png" class="reflect" alt="Views bulk operations file structure" title="Views bulk operations file structure">
     </article>
@@ -1009,7 +1034,7 @@ class mymodule_list_handler extends draggableviews_handler {
 
   <slide>
     <hgroup>
-      <h2>How do facets look like?</h2>
+      <h2>Search facets</h2>
     </hgroup>
     <article class="centered">
       <img src="images/facetapi_example.png" class="reflect" alt="Facet API example" title="Facet API example">

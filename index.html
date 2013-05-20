@@ -433,15 +433,15 @@ ctools_node_type_ctools_access_summary($conf, $context);
       <h2>Context Plugin code</h2>
     </hgroup>
     <article>
-      <pre class="prettyprint" data-lang="php">
+      <pre class="prettyprint">
 function _simplified_ctools_context_create_node($empty, $data = NULL, $conf = FALSE) {
 
-  $nid = is_array($data) && isset($data['nid']) ? $data['nid'] : (is_object($data) ? $data->nid : 0);
-  $node = node_load($nid);
+  $nid = $data['nid'];
+  <b>$node = node_load($nid);</b>
 
-  $context = new ctools_context('node');
+  <b>$context = new ctools_context('node');</b>
   $context->plugin = 'node';
-  $context->data     = $node;
+  <b>$context->data     = $node;</b>
   $context->title    = $node->title;
   $context->argument = $node->nid;
   $context->restrictions['type'] = array($node->type);

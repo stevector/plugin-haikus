@@ -1,0 +1,1522 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/drupalcon_pdx_icon_2.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup class="auto-fadein">
+      <h2>What's a haiku?</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Describe an idea. <br/>
+        Five, seven, five syllables. <br/>
+        End it with a twist.
+      </q>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Drupal Haikus</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+      Hello D6 site! <br>
+      Are your modules up to date? <br>
+      … I’ll need some coffee.
+      </q>
+      <footer class="source"><a href="https://twitter.com/DrupalHaikus/status/246107066828206081">Twitter</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Drupal Haikus</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        drupal_execute(), <br>
+        the only hammer you need. <br>
+        Where’d these screws come from?
+      </q>
+      <footer class="source"><a href="https://twitter.com/DrupalHaikus/status/252788224198578178">Twitter</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Drupal Haikus</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+div class class div class <br/>
+div span words close span close div <br/>
+close div close div sigh
+      </q>
+      <footer class="source"><a href="https://twitter.com/DrupalHaikus/status/235000347037421568">Twitter</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup class="auto-fadein">
+      <h2>What's a plugin?</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Plugins add discrete <br/>
+        abilities to your site. <br/>
+        Assembly required.
+      </q>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+      <h2>Steve Persch</h2>
+      <h3></h3>
+    </hgroup>
+    <article class="zen-container zen-two-col">
+      <div>
+      <img src="images/ctools/steve_persch.jpg" alt="Steve Persch" title="Steve Persch" />
+      </div>
+      <div>
+      <ul>
+        <li>@stevector on <a href="http://drupal.org/user/179805">Drupal.org</a>, <a href="http://twitter.com/stevector">Twitter</a> and <a href="https://github.com/stevector">Github</a></li>
+        <li>Senior Engineer at <a href="http://palantir.net">Palantir.net</a></li>
+      </ul>
+      <p><img src="images/ctools/palantirnet-logo-2013.png" alt="Palantir logo" title="Palantir logo" /></p>
+      <p>Our mission at Palantir is to empower and enable people everywhere to share information through highly functional websites and interactive software.</p>
+      </div>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+      <h2>Pedro Cambra</h2>
+      <h3></h3>
+    </hgroup>
+    <article class="zen-container zen-two-col">
+      <div>
+        <img src="images/pedro_cambra.png" alt="Pedro Cambra" title="Pedro Cambra" />
+      </div>
+      <div>
+      <ul>
+        <li>@pcambra on <a href="http://drupal.org/user/122101">Drupal.org</a> and <a href="http://twitter.com/pcambra">Twitter</a></li>
+        <li>Drupal Commerce developer at <a href="http://commerceguys.com">Commerce Guys</a></li>
+        <li>Community elected Drupal Association board member</a>
+      </ul>
+      </div>
+    </article>
+    <footer class="grass-wagon">
+    </footer>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+      <h2>Obligatory shout-out to Earl Miles</h2>
+      <h3><a href="http://drupal.org/user/26979">merlinofchaos</a> on Drupal.org</h3>
+    </hgroup>
+    <article class="zen-container zen-two-col">
+      <div>
+      <img src="images/ctools/drupalcon-sunnyvale-2007-earl-miles.jpg" alt="Earl Miles" title="Earl Miles" />
+      </div>
+      <div>
+        <ul>
+          <li>Views</li>
+          <li>CTools</li>
+          <li>Panels</li>
+          <li>Panels Everywhere</li>
+          <li>Panelizer</li>
+          <li>Nodequeue</li>
+          <li>Advanced Help</li>
+        </ul>
+      </div>
+      <footer class="source"><a href="http://buytaert.net/album/drupalcon-sunnyvale-2007/earl-miles">http://buytaert.net/album/drupalcon-sunnyvale-2007/earl-miles</a></footer>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+      <h2>What is CTools?</h2>
+      <h3>Acronym for Chaos Tools</h3>
+    </hgroup>
+    <article class="definition">
+      <p>This suite is primarily a set of APIs and tools to improve the developer experience. All these enhancements have grown <b>far more than just Panels</b> and some of them have been or are being included in Drupal Core.</p>
+    <footer class="source">
+      <a href="http://drupal.org/project/ctools">CTools project page</a>
+    </footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>D8 Plugin System Deep Dive session</h2>
+      <h3>First of many reminders in this presentation</h3>
+    </hgroup>
+    <article>
+      <p>
+        <a href="http://portland2013.drupal.org/node/2458">
+          Thursday, 1pm. Hall A1 - Acquia
+        </a><br>
+      </p>
+      <p>
+        <b>Presented by:</b>
+      </p>
+      <ul>
+        <li>Kris Vanderwater - EclipseGc</li>
+        <li>James Gilliland - neclimdul </li>
+        <li>Tim Plunkett - tim.plunkett</li>
+        <li>Alex Bronstein - effulgentsia</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide class="subtitle-slide segue nobackground">
+    <hgroup class="auto-fadein">
+      <h1>Panels universe</h1>
+    </hgroup>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Panels</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Control your layout <br/>
+        With in-browser editing. <br/>
+        Drupal 8’s White Whale.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>In-browser layout editing</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/content-types-in-a-layout.png" alt="" title="" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Control the layout of Article nodes</h2>
+      <h3>Put an author name and picture in the sidebar.</h3>
+    </hgroup>
+    <article>
+       <img src="images/panels/panels-end-result.png" alt="Panels end result" title="Panels end result" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Panels starts with a complex screen</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/panels-overview.png" alt="Node page config" title="Node page config" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Set conditions for selecting the variant</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/access-plugin-article.png" alt="Access plugin screen" title="Access plugin screen" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Add more contexts</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/contexts.png" alt="Contexts screen" title="Contexts screen" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Pick a Layout</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/layouts.png" alt="" title="" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Put stuff in the layout</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/content-types-in-a-layout.png" alt="" title="" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Did it work?</h2>
+    </hgroup>
+    <article>
+       <img src="images/panels/panels-end-result--did-it-work.png" alt="Panels end result" title="Panels end result" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>If it didn't work...</h2>
+
+    </hgroup>
+    <article>
+      <ul>
+        <li>Try Googling the problem</li>
+        <li>Maybe StackExchange knows</li>
+        <li>Drupal.org issue queue</li>
+        <li>Read Documentation</li>
+        <li>Ask a co-worker</li>
+        <li>Ask IRC</li>
+        <li><b>Look at the code</b></li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Once the code is open you could...</h2>
+
+    </hgroup>
+    <article>
+      <ul>
+        <li>dsm()/dpm anywhere/everywhere</li>
+        <li>Check for clues in template files</li>
+        <li>Use an IDE's debugger</li>
+        <li><b>Go straight for the plugin file</b></li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Maybe the access plugin is not working</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/access-plugin-article.png" alt="Access plugin screen" title="Access plugin screen" />
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Access Plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Give it a context<br/>
+        And some configuration.<br/>
+        Get back TRUE or FALSE.
+      </q>
+    </article>
+  </slide>
+<!-- @todo capitalization consistency of "plugin"-->
+  <slide>
+    <hgroup>
+      <h2>Access Plugins</h2>
+      <h3>Return TRUE or FALSE</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+function _simplified_ctools_node_type_ctools_access_check($conf, $context) {
+  $node = $context->data;
+  if (array_key_exists($node->type, $conf['type'])) {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+      </pre>
+      <footer class="source">Real version at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/access/node_type.inc#l53">plugins/access/node_type.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+      <hgroup>
+      <h2>Debugging plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        The plugin exists<br/>
+        to implement one function.<br/>
+        Debug in there first.
+      </q>
+    </article>
+  </slide>
+
+<!-- @todo screen shot. haiku. code -->
+
+  <slide>
+    <hgroup>
+      <h2>Functions in the node_type access plugin</h2>
+    </hgroup>
+    <article>
+
+      <pre class="prettyprint" data-lang="php">
+ctools_node_type_ctools_access_settings($form, &$form_state, $conf);
+ctools_node_type_ctools_access_settings_submit($form, &$form_state);
+<b>ctools_node_type_ctools_access_check($conf, $context);</b>
+ctools_node_type_ctools_access_restrictions($conf, &$context);
+ctools_node_type_ctools_access_summary($conf, $context);
+      </pre>
+      <footer class="source">Real code at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/access/node_type.inc#l53">plugins/access/node_type.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Wait, what's a context?</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/contexts.png" alt="Contexts screen" title="Contexts screen" />
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Context Plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        With standard classes,<br/>
+        we don’t know an object’s type.<br/>
+        Wrap and label it.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Context Plugin code</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint">
+function _simplified_ctools_context_create_node($empty, $data = NULL, $conf = FALSE) {
+
+  $nid = $data['nid'];
+  <b>$node = node_load($nid);</b>
+
+  <b>$context = new ctools_context('node');</b>
+  $context->plugin = 'node';
+  <b>$context->data     = $node;</b>
+  $context->title    = $node->title;
+  $context->argument = $node->nid;
+  $context->restrictions['type'] = array($node->type);
+
+  return $context;
+}
+      </pre>
+      <footer class="source">Real code at: <a href="http://drupalcode.org/project/ctools.git/blob/refs/heads/7.x-1.x:/plugins/contexts/node.inc#l38">plugins/contexts/node.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Second Reminder</h2>
+      <h3>Go to the D8 Plugin System Deep Dive session</h3>
+    </hgroup>
+    <article>
+      <p>
+        <a href="http://portland2013.drupal.org/node/2458">
+          Thursday, 1pm. Hall A1 - Acquia
+        </a><br>
+      </p>
+      <p>
+        <b>Presented by:</b>
+      </p>
+      <ul>
+        <li>Kris Vanderwater - EclipseGc</li>
+        <li>James Gilliland - neclimdul </li>
+        <li>Tim Plunkett - tim.plunkett</li>
+        <li>Alex Bronstein - effulgentsia</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>Relationship Plugins</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/contexts.png" alt="Contexts screen" title="Contexts screen" />
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Relationship Plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Pass in a context,<br/>
+        and get another context.<br/>
+        It is that simple.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Node to Author relationship</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+function _simplified_ctools_user_from_node_context($context, $conf) {
+  $node = $context->data;
+  $uid = $node->uid;
+  $account = user_load($uid);
+  return ctools_context_create('user', $account);
+}
+      </pre>
+      <footer class="source">Real code at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/relationships/user_from_node.inc#l24">plugins/relationships/user_from_node.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Content Type Plugins</h2>
+      <h3>No, the other kind of "content type"</h3>
+    </hgroup>
+    <article>
+      <img src="images/panels/content-type-browser.png" alt="content type" title="content type" />
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+      <hgroup>
+      <h2>Content Type Plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Returns some markup,<br/>
+        Wrapped in a standard object.<br/>
+        Sorry for the name.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Content Type Plugins</h2>
+      <h3>No, the other kind of "content type"</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+function _simplified_ctools_node_content_type_render($subtype, $conf, $panel_args) {
+  $nid = $conf['nid'];
+  $node = node_load($nid);
+
+  $block = new stdClass();
+  $block->delta = $node->nid;
+  $block->title = check_plain($node->title);
+  $block->content = node_view($node, $conf['build_mode']);
+
+  return $block;
+}
+      </pre>
+      <footer class="source">Real version at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/content_types/node/node.inc#l36">plugins/content_types/node/node.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+      <hgroup>
+      <h2>A repeated haiku</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        The plugin exists<br/>
+        to implement one function.<br/>
+        Debug in there first.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Where to begin debugging?</h2>
+      <h3>Remember, we're just concatenating strings</h3>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+<b>ctools_node_content_type_render($subtype, $conf, $panel_args);</b>
+ctools_node_content_type_edit_form($form, &$form_state);
+ctools_node_content_type_edit_form_validate(&$form, &$form_state);
+ctools_node_content_type_edit_form_submit($form, &$form_state);
+ctools_node_content_type_admin_title($subtype, $conf);
+ctools_node_content_type_admin_info($subtype, $conf);
+      </pre>
+      <footer class="source">Real version at: <a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/plugins/content_types/node/node.inc#l36">plugins/content_types/node/node.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>One more content type example</h2>
+      <h3>Views Content Panes</h3>
+    </hgroup>
+    <article>
+      <div>
+      <img src="images/views-content-panes/views-content-panes--views.png" alt="Views Admin Screen" title="Views Admin Screen" />
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Where does the argument come from?</h2>
+    </hgroup>
+    <article>
+      <div>
+      <img src="images/views-content-panes/views-content-panes--data-source.png" alt="Views Display Checkboxes" title="Views Display Checkboxes" />
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Only check boxes you know you need</h2>
+    </hgroup>
+    <article>
+      <div>
+      <img src="images/views-content-panes/views-content-panes--display-checkboxes.png" alt="Views Display Checkboxes" title="Views Display Checkboxes" />
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>On the Panels side</h2>
+    </hgroup>
+    <article>
+      <div>
+      <img src="images/views-content-panes/views-content-panes--panels-side.png" alt="Views Content Pane edit form" title="Views Content Pane edit form" />
+      </div>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Go straight to the big render function</h2>
+    </hgroup>
+    <article>
+      <!-- @todo, height is not working on iframe -->
+      <iframe height="80%" src="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/views_content/plugins/content_types/views_panes.inc#l198">
+      </iframe>
+      <footer class="source"><a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/views_content/plugins/content_types/views_panes.inc#l198">views_content/plugins/content_types/views_panes.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+      <hgroup>
+      <h2>One more time</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        The plugin exists<br/>
+        to implement one function.<br/>
+        Debug in there first.
+      </q>
+    </article>
+  </slide>
+
+  <slide class="subtitle-slide segue nobackground">
+    <hgroup class="auto-fadein">
+      <h1>Outside Panels universe</h1>
+    </hgroup>
+  </slide>
+
+  <slide class="segue brown nobackground">
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        It’s not just Panels.<br/>
+        Plugins can enhance much more.<br/>
+        Extend your mind too.
+      </q>
+    </article>
+    <aside class="note">
+      <section>
+        <p>Plugins don’t solely live inside and for Panels, but for encapsulating other useful pieces of code to be shipped and extended by other parties. We could introduce the concept of what a plugin outside panels should do. Show a couple of examples and how to extend things like entity reference or addressfield.</p>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Declaring bean types</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Implements hook_bean_types().
+ */
+function bean_twitter_pull_bean_types() {
+  $plugins = array();
+  $plugin_path = drupal_get_path('module', 'bean_twitter_pull') . '/plugins/bean';
+  $plugins['twitter_pull'] = array(
+    'label' => t('Twitter Pull'),
+    'handler' => array(
+      'class' => 'TwitterPullBean',
+      'parent' => 'bean',
+    ),
+    'path' => $plugin_path,
+    'file' => 'bean_twitter_pull.inc',
+  );
+  return $plugins;
+}
+      </pre>
+    <footer class="source"><a href="http://drupal.org/project/bean_twitter_pull">Bean twitter pull</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Bean plugin details</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+class TwitterPullBean extends BeanPlugin {
+  /**
+   * Declares default block settings.
+   */
+  public function values() { (&hellip;) }
+  /**
+   * Builds extra settings for the block edit form.
+   */
+  public function form($bean, $form, &$form_state) { (&hellip;) }
+
+  /**
+   * Displays the bean.
+   */
+  <b>public function view($bean, $content, $view_mode = 'default', $langcode = NULL) {
+    $content['twitter_results']['#markup'] = twitter_pull_render($bean->settings['twitkey'],
+      FALSE, $bean->settings['num_items']);
+    return $content;
+  }</b>
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Bean</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Beans are not nodes but<br/>
+        block fieldable entities<br/>
+        Provide your own type.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Altering entity reference widget forms</h2>
+      <h3>How a plugin approach helps?</h3>
+    </hgroup>
+    <article>
+      <img src="images/coupon_screen.png" class="reflect" alt="Entity Reference with coupons" title="Entity reference widget with coupons">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Entity Reference widget plugin selection</h2>
+    </hgroup>
+    <article>
+      <img src="images/entity_reference_coupon.jpg" class="reflect" alt="Entity Reference with coupons" title="Entity reference widget with coupons">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Entity Reference widget plugin selection</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+class EntityReference_SelectionHandler_Generic_commerce_coupon
+  extends EntityReference_SelectionHandler_Generic {
+  public function buildEntityFieldQuery($match = NULL, $match_operator = 'CONTAINS') {
+    $query = parent::buildEntityFieldQuery($match, $match_operator);
+    if (isset($match)) {
+      <b>$query->fieldCondition('commerce_coupon_code', 'value',
+        $match, $match_operator)</b>;
+    }
+    return $query;
+  }
+  public function getLabel($entity) {
+    $wrapper = entity_metadata_wrapper('commerce_coupon', $entity);
+    <b>return $wrapper->commerce_coupon_code->value()</b>;
+  }
+      </pre>
+    <footer class="source">Example from <a href="http://drupal.org/project/commerce_coupon">Commerce coupon</a>. Other example: <a href="http://drupal.org/project/webform_entity">Webform entity module</a>.</footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Entity Reference</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Even field module<br/>
+        Has plugins extending it.<br/>
+        Beats huge form alters.
+      </q>
+    </article>
+  </slide>
+
+  <slide hidden class="brown nobackground">
+    <hgroup>
+      <h2>Feeds</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Fetch, process and parse; <br/>
+        such is life for feed plugins.<br/>
+        You must declare yours.
+      </q>
+    </article>
+    <aside class="note">
+      <section>
+        <p>All feeds plugins are ctools based, examples on Fetchers/Parsers?. Not really sure feeds is implementing CTools plugins properly, need to confirm with twistor.</p>
+      </section>
+    </aside>
+  </slide>
+
+  <slide hidden class="brown nobackground">
+    <hgroup>
+      <h2>Views Bulk Operations</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Adds a field handler<br/>
+        For a checkbox on each row.<br/>
+        Process with actions.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to create your own plugins</h2>
+    </hgroup>
+    <article>
+      <p>Start implementing <b>hook_ctools_plugin_type</b>. <a href="http://drupalcode.org/project/ctools.git/blob_plain/refs/heads/7.x-1.x:/help/plugins-creating.html">Documentation</a>.</p>
+    </article>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+function views_bulk_operations_ctools_plugin_type() {
+  return array(
+    'operation_types' => array(
+      'classes' => array(
+        'handler',
+      ),
+    ),
+  );
+}
+      </pre>
+      <pre class="prettyprint" data-lang="php">
+function addressfield_ctools_plugin_type() {
+  $plugins['format'] = array(
+    'load themes' => TRUE,
+  );
+  return $plugins;
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to create your own plugins</h2>
+    </hgroup>
+    <article>
+      <p>Define your plugin directory with <b>hook_ctools_plugin_directory</b>.</p>
+    </article>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function views_bulk_operations_ctools_plugin_directory($module, $plugin) {
+  <b>if ($module == 'views_bulk_operations') {
+    return 'plugins/' . $plugin;
+  }</b>
+}
+      </pre>
+      <pre class="prettyprint" data-lang="php">
+function draggableviews_ctools_plugin_directory($module, $plugin) {
+  if (($module == 'draggableviews') && ($plugin == 'handler' || $plugin == 'hierarchy_handler')) {
+    return 'handlers';
+  }
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide class="nobackground">
+    <hgroup>
+      <h2>How to create your own plugins</h2>
+    </hgroup>
+    <article class="centered">
+      <img src="images/vbo_file_structure.png" class="reflect" alt="Views bulk operations file structure" title="Views bulk operations file structure">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to create your own plugins</h2>
+    </hgroup>
+    <article>
+      <p>Declare your plugin classes in a plugin.inc file.</p>
+      <pre class="prettyprint" data-lang="php">
+$plugin = array(
+  'title' => t('Action'),
+  'list callback' => 'views_bulk_operations_operation_action_list',
+  <b>'handler' => array(
+    'file' => 'action.class.php',
+    'class' => 'ViewsBulkOperationsAction',
+  ),</b>
+);
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to create your own plugins</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Add a class.php file with the methods needed.</p>
+      <pre class="prettyprint" data-lang="php">
+class ViewsBulkOperationsAction extends ViewsBulkOperationsBaseOperation {
+(&hellip;)
+  public function access($account) {
+    if (module_exists('actions_permissions')) {
+      $perm = actions_permissions_get_perm($this->operationInfo['label'], $this->operationInfo['key']);
+      <b>if (!user_access($perm, $account)) {
+        return FALSE;
+      }</b>
+    }
+    if (!empty($this->operationInfo['permissions'])) {
+      foreach ($this->operationInfo['permissions'] as $perm) {
+        <b>if (!user_access($perm, $account)) {
+          return FALSE;
+        }</b>
+      }
+    }
+    <b>return TRUE;</b>
+  }
+(&hellip;)
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>How to create your own plugins</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Example of use of the plugin.</p>
+      <pre class="prettyprint" data-lang="php">
+<b>function views_bulk_operations_get_operation_type($operation_type) {
+  ctools_include('plugins');
+  return ctools_get_plugins('views_bulk_operations', 'operation_types', $operation_type);
+}</b>
+      </pre>
+      <pre class="prettyprint" data-lang="php">
+public function get_selected_operations() {
+  global $user;
+  $selected = drupal_static(__FUNCTION__);
+  if (!isset($selected)) {
+    (&hellip;)
+      <b>$operation = views_bulk_operations_get_operation($operation_id, $entity_type, $options);
+      if (!$operation || !$operation->access($user)) {</b>
+        continue;
+      }
+      $selected[$operation_id] = $operation;
+    (&hellip;)
+  return $selected;
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Drag all the kittens!</h2>
+    </hgroup>
+    <article class="build centered">
+      <img src="images/draggableviews.gif" class="reflect" alt="Draggableviews example" title="Draggableviews example">
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>DraggableViews</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Use the crosshair to<br/>
+        drag and drop your result rows.<br/>
+        Sort plugins will help.
+      </q>
+    </article>
+    <aside class="note">
+      <section>
+        <p>Example on how to extend the sort (I’ve got a real life example here)</p>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Draggableviews sort plugin</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+class mymodule_list_handler extends draggableviews_handler {
+  <b>public function get($field, $index)</b> {
+    return mymodule_list_preprocess($index);
+  }
+
+  <b>function set($form_state)</b> {
+    $sort_keys = array();
+    $view = $form_state['build_info']['args'][0];
+    $list = unserialize($view->args[2]);
+    $original_lines = $list->lines;
+    // Generate a helper array to sort the rows as the user has set them.
+    $sort_keys = mymodule_list_generate_sort_keys($form_state['values']['draggableviews']);
+
+    usort($list->lines, function($a, $b) use ($sort_keys) {
+      return ($sort_keys[$a->reference]['weight'] > $sort_keys[$b->reference]['weight']);
+    });
+    // Save the list if there's any change.
+    if ($list->lines <> $original_lines) {
+      mymodule_update_list($list);
+    }
+  }
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Search facets</h2>
+    </hgroup>
+    <article class="centered">
+      <img src="images/facetapi_example.png" class="reflect" alt="Facet API example" title="Facet API example">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Facet API filter plugin</h2>
+    </hgroup>
+    <article>
+      <img src="images/facetapi_filter_example.jpg" class="reflect" alt="Facet API filter plugin" title="Facet API filter plugin">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Facet API plugin example</h2>
+      <h3>Remove facets that don't narrow any result.</h3>
+    </hgroup>
+    <article class="centered">
+      <img src="images/facetapi_before.png" class="reflect" alt="Facet API example" title="Facet API example">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Facet API plugin example</h2>
+      <h3>Remove facets that don't narrow any result.</h3>
+    </hgroup>
+    <article class="centered">
+      <img src="images/facetapi_after.png" class="reflect" alt="Facet API example" title="Facet API example">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Facet API narrow results plugin</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+class FacetapiFilterNarrowResults extends FacetapiFilter {
+(...)
+  /**
+   * Removes items that do not narrow search results.
+   */
+  protected function removeNotNarrowItems(&$items) {
+    foreach ($items as $key => $item) {
+      // Run recursively cleanup on all children.
+      if (!empty($item['#item_children'])) {
+        $this->removeNotNarrowItems($item['#item_children']);
+      }
+      // If item does not narrow results, does not have children and is
+      // not active we remove it.
+      <b>if ($item['#count'] == $this->count && empty($item['#item_children']) && !$item['#active']) {
+        unset($items[$key]);
+      }</b>
+    }
+  }
+}
+      </pre>
+      <footer class="source"><a href="http://drupal.org/project/facetapi_bonus">Facet API bonus module</a>.</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Facet API plugin types</h2>
+    </hgroup>
+    <article class="flexbox vleft">
+      <ul>
+        <li>Adapters</li>
+        <li>Manage dependencies</li>
+        <li>Empty behavior</li>
+        <li>Filters</li>
+        <li>Backend query alterations (query types)</li>
+        <li>URL processors</li>
+        <li>Widgets</li>
+      </ul>
+      <footer class="source"><a href="http://drupalcode.org/project/facetapi.git/tree/refs/heads/7.x-1.x:/plugins/facetapi">FacetAPI plugins source code</a></footer>
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Facet API</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Make your search pages<br/>
+        more rich and interesting<br/>
+        Just&hellip; one&hellip; more&hellip; facet.
+      </q>
+    </article>
+  </slide>
+
+  <slide hidden class="brown nobackground">
+    <hgroup>
+      <h2>Addressfield</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Flexible address<br/>
+        to make zipcode optional.<br/>
+        With formats you win
+      </q>
+    </article>
+    <aside class="note">
+      <section>
+        <p>Extend address support per country using plugins, plenty of examples here..</p>
+        <p>Not clear if we want to show this one. </p>
+      </section>
+    </aside>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers map layers & styles</h2>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_layers_styles.png" class="reflect" alt="OpenLayers styles" title="OpenLayers styles">
+    </article>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Open Layers</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        On a map layer<br/>
+        anything can be displayed.<br/>
+        JS is precious.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers map behaviors</h2>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_behaviors.png" class="reflect" alt="OpenLayers behaviors" title="OpenLayers behaviors">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers behavior plugin example</h2>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_ol_popups.png" class="reflect" alt="OpenLayers Feature Popups" title="OpenLayers Feature Popups">
+      <footer class="source"><a href="http://drupal.org/project/olfp">OpenLayers Feature Popups</a></footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers Feature Popups</h2>
+      <h3>Hover effects</h3>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_map2.png" class="reflect" alt="Open layers behaviors" title="Open layers behaviors">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers Feature Popups</h2>
+      <h3>Persistent popups</h3>
+    </hgroup>
+    <article class="centered">
+      <img src="images/openlayers_map3.png" class="reflect" alt="Open layers behaviors" title="Open layers behaviors">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers behavior plugins</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Ctools plugin definition.
+ */
+function olfp_openlayers_behavior_fp_openlayers_behaviors() {
+  return array(
+    'title' => t('OL Feature Popups'),
+    'description' => t('OL Feature Popups: Provide an easy way to manage popups.'),
+    'type' => 'layer',
+    <b>'behavior' => array(
+      'file' => 'openlayers_behavior_fp.inc',
+      'class' => 'openlayers_behavior_fp',
+      'parent' => 'openlayers_behavior',
+    ),</b>
+    'group' => 'Info boxes'
+  );
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>OpenLayers behavior plugins</h2>
+    </hgroup>
+    <article class="smaller">
+      <pre class="prettyprint" data-lang="php">
+/**
+ * Attribution Behavior
+ */
+class openlayers_behavior_fp extends openlayers_behavior {
+  function options_init() {(&hellip;)}
+  function options_form() {(&hellip;)}
+  /**
+   * Render.
+   */
+  <b>function render(&$map) {</b>
+    // Add the OL Feature Popups extension.
+    if ($path = _olfp_get_path()) {
+      drupal_add_js($path . '/lib/patches_OL-popup-autosize.js');
+      drupal_add_js($path . '/lib/FeaturePopups.js');
+    }
+    drupal_add_css(drupal_get_path('module', 'olfp') . '/olfp.css', array('weight' => 12));
+    <b>drupal_add_js(drupal_get_path('module', 'olfp') .
+      '/openlayers_plugins/behaviors/openlayers_behavior_fp.js', array('weight' => 12));</b>
+    return $this->options;
+  }
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Wait, there is more!</h2>
+      <h3>Other modules providing plugins support</h3>
+    </hgroup>
+    <article>
+      <ul class="build">
+        <li><a href="http://drupal.org/project/views">Views</a></li>
+      </ul>
+      <ul class="build">
+        <li><a href="http://drupal.org/project/addressfield">Addressfield</a></li>
+        <li><a href="http://drupal.org/project/crumbs">Crumbs</a></li>
+        <li><a href="http://drupal.org/project/feeds">Feeds</a></li>
+        <li><a href="http://drupal.org/project/facetapi_pretty_paths">Facet API pretty paths</a></li>
+        <li><a href="http://drupal.org/project/linkit">Linkit</a></li>
+        <li><a href="http://drupal.org/project/quicktabs">Quicktabs</a></li>
+        <li><a href="http://drupal.org/project/tree">Tree</a></li>
+        <li><a href="http://drupal.org/project/views_bulk_operations">Views Bulk Operations</a></li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="subtitle-slide segue nobackground">
+    <hgroup class="auto-fadein">
+      <h1>Extra ball</h1>
+      <h2>Ctools is much more than plugins</h2>
+    </hgroup>
+  </slide>
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Modal windows</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        User attention<br/>
+        Goes to the piece that pops up.<br/>
+        Don’t modal all things.
+      </q>
+    </article>
+  </slide>
+
+  <slide class="fill nobackground" style="background-image: url(images/modal-errors.png)">
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Modals with CTools</h2>
+    </hgroup>
+    <article>
+      <p>Declare your modal callback with hook_menu()</p>
+      <pre class="prettyprint" data-lang="php">
+function simple_ass_modal_menu() {
+  $items = array();
+  $items['simple_ass_modal/<b>%ctools_js</b>/test'] = array(
+    'title' => 'Modal test',
+    'page callback' => 'simple_ass_modal_page',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+      </pre>
+      <footer class="source">Example <strike>stolen</strike> taken from <a href="http://awebfactory.com.ar/node/491">awebfactory</a>.</footer>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Modals with CTools</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Declare your modal callback with hook_menu()</p>
+      <pre class="prettyprint" data-lang="php">
+function simple_ass_modal_page() {
+  <b>ctools_include('ajax');
+  ctools_include('modal');
+  ctools_modal_add_js();</b>
+  $custom_style = array(
+    'my-simple-ass-modal-style' => array(
+      'modalSize' => array(
+        'type' => 'fixed',
+        'width' => 425,
+        'height' => 250,
+      ),
+      'animation' => 'fadeIn',
+    ),
+  );
+  drupal_add_js($custom_style, 'setting');
+  <b>$output = ctools_modal_text_button(t('Click Here'), 'simple_ass_modal/nojs/test/form',
+    t('Pop me up'), 'ctools-modal-my-simple-ass-modal-style');</b>
+  $output .= '&lt;div id="modal-message"&gt;&nbsp&lt;/div&gt;';
+  ctools_include('plugins');
+  return $output;
+}
+      </pre>
+    </article>
+  </slide>
+
+  <slide hidden>
+    <hgroup>
+      <h2>Jump menus</h2>
+      <h3>Create a jump menu easily with CTools</h3>
+    </hgroup>
+    <article>
+    </article>
+    <article class="build centered zen-container zen-two-col">
+      <div>
+        <img src="images/jump_menu_2.png" class="reflect" alt="Jump menu" title="Jump menu">
+      </div>
+      <div>
+        <img src="images/jump_menu.jpg" class="reflect" alt="Jump menu" title="Jump menu">
+      </div>
+    </article>
+  </slide>
+
+  <slide hidden>
+    <hgroup>
+      <h2>Jump menus</h2>
+    </hgroup>
+    <article class="smaller">
+      <p>Declare your modal callback with hook_menu()</p>
+      <pre class="prettyprint" data-lang="php">
+function ctools_example_jump_menu_page($form, &$form_state) {
+  $form = array();
+  $form['text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Your textfield'),
+    '#default_value' => check_plain(arg(2)),
+  );
+  <b>$targets = array(
+    '/ctools_example/jump_menu/one' => t('One'),
+    '/ctools_example/jump_menu/two' => t('Two'),
+    '/ctools_example/jump_menu/three' => t('Three'),
+  );
+  ctools_include('jump-menu');
+  $form['jump_menu'] = drupal_get_form('ctools_jump_menu', $targets, array());</b>
+  return $form;
+}
+      </pre>
+    <footer class="source"><a href="https://github.com/pcambra/ctools_jump_menu_example">Example link</a>. Also, see <a href="http://drupal.org/project/jump_menu"> Better Jump Menus</a> module.</footer>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>But also all these other cool things</h2>
+    </hgroup>
+    <article class="flexbox vleft">
+      <ul>
+        <li>Exportables</li>
+        <li>Jump menus</li>
+        <li>Object caching</li>
+        <li>Form wizard</li>
+        <li>CSS Tools</li>
+        <li>Dropdown buttons</li>
+        <li>Extra ajax commands</li>
+        <li>Entity autocomplete helper</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Go to the D8 Plugin System Deep Dive</h2>
+      <h3>We mean it, seriously</h3>
+    </hgroup>
+    <article>
+      <p>
+        <a href="http://portland2013.drupal.org/node/2458">
+          Thursday, 1pm. Hall A1 - Acquia
+        </a><br>
+      </p>
+      <p>
+        <b>Presented by:</b>
+      </p>
+      <ul>
+        <li>Kris Vanderwater - EclipseGc</li>
+        <li>James Gilliland - neclimdul </li>
+        <li>Tim Plunkett - tim.plunkett</li>
+        <li>Alex Bronstein - effulgentsia</li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide class="brown nobackground">
+    <hgroup>
+      <h2>Questions</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Now's your chance to ask <br/>
+        us any plugin question. <br/>
+        Please pose as haikus.
+      </q>
+    </article>
+  </slide>
+
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/drupalcon_pdx_icon_2.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <h3>What did you think?</h3>
+      <h3>Evaluate this session at: <a href="http://portland2013.drupal.org/schedule">portland2013.drupal.org/schedule</a></h3>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>

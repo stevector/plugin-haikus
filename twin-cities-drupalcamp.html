@@ -126,27 +126,6 @@ close div close div sigh
 
   <slide class="nobackground">
     <hgroup>
-      <h2>Pedro Cambra</h2>
-      <h3></h3>
-    </hgroup>
-    <article class="zen-container zen-two-col">
-      <div>
-        <img src="images/pedro_cambra.png" alt="Pedro Cambra" title="Pedro Cambra" />
-      </div>
-      <div>
-      <ul>
-        <li>@pcambra on <a href="http://drupal.org/user/122101">Drupal.org</a> and <a href="http://twitter.com/pcambra">Twitter</a></li>
-        <li>Drupal Commerce developer at <a href="http://commerceguys.com">Commerce Guys</a></li>
-        <li>Community elected Drupal Association board member</a>
-      </ul>
-      </div>
-    </article>
-    <footer class="grass-wagon">
-    </footer>
-  </slide>
-
-  <slide class="nobackground">
-    <hgroup>
       <h2>Obligatory shout-out to Earl Miles</h2>
       <h3><a href="http://drupal.org/user/26979">merlinofchaos</a> on Drupal.org</h3>
     </hgroup>
@@ -518,6 +497,35 @@ function _simplified_ctools_user_from_node_context($context, $conf) {
 
   <slide>
     <hgroup>
+      <h2>Layout plugins</h2>
+      <h3>@todo  image</h3>
+    </hgroup>
+    <article>
+
+
+
+
+    </article>
+  </slide>
+
+
+  <slide class="brown nobackground">
+      <hgroup>
+      <h2>Layout Plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+Tell it your regions<br>
+And give it a TPL.<br>
+See it in Panels.
+      </q>
+    </article>
+  </slide>
+
+
+
+  <slide>
+    <hgroup>
       <h2>Content Type Plugins</h2>
       <h3>No, the other kind of "content type"</h3>
     </hgroup>
@@ -684,75 +692,8 @@ ctools_node_content_type_admin_info($subtype, $conf);
     </aside>
   </slide>
 
-  <slide>
-    <hgroup>
-      <h2>Declaring bean types</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="php">
-/**
- * Implements hook_bean_types().
- */
-function bean_twitter_pull_bean_types() {
-  $plugins = array();
-  $plugin_path = drupal_get_path('module', 'bean_twitter_pull') . '/plugins/bean';
-  $plugins['twitter_pull'] = array(
-    'label' => t('Twitter Pull'),
-    'handler' => array(
-      'class' => 'TwitterPullBean',
-      'parent' => 'bean',
-    ),
-    'path' => $plugin_path,
-    'file' => 'bean_twitter_pull.inc',
-  );
-  return $plugins;
-}
-      </pre>
-    <footer class="source"><a href="http://drupal.org/project/bean_twitter_pull">Bean twitter pull</a></footer>
-    </article>
-  </slide>
 
-  <slide>
-    <hgroup>
-      <h2>Bean plugin details</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="php">
-class TwitterPullBean extends BeanPlugin {
-  /**
-   * Declares default block settings.
-   */
-  public function values() { (&hellip;) }
-  /**
-   * Builds extra settings for the block edit form.
-   */
-  public function form($bean, $form, &$form_state) { (&hellip;) }
 
-  /**
-   * Displays the bean.
-   */
-  <b>public function view($bean, $content, $view_mode = 'default', $langcode = NULL) {
-    $content['twitter_results']['#markup'] = twitter_pull_render($bean->settings['twitkey'],
-      FALSE, $bean->settings['num_items']);
-    return $content;
-  }</b>
-}
-      </pre>
-    </article>
-  </slide>
-
-  <slide class="brown nobackground">
-    <hgroup>
-      <h2>Bean</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        Beans are not nodes but<br/>
-        block fieldable entities<br/>
-        Provide your own type.
-      </q>
-    </article>
-  </slide>
 
   <slide>
     <hgroup>
@@ -1313,139 +1254,8 @@ class openlayers_behavior_fp extends openlayers_behavior {
     </hgroup>
   </slide>
 
-  <slide class="brown nobackground">
-    <hgroup>
-      <h2>Modal windows</h2>
-    </hgroup>
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        User attention<br/>
-        Goes to the piece that pops up.<br/>
-        Don’t modal all things.
-      </q>
-    </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/modal-errors.png)">
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Modals with CTools</h2>
-    </hgroup>
-    <article>
-      <p>Declare your modal callback with hook_menu()</p>
-      <pre class="prettyprint" data-lang="php">
-function simple_ass_modal_menu() {
-  $items = array();
-  $items['simple_ass_modal/<b>%ctools_js</b>/test'] = array(
-    'title' => 'Modal test',
-    'page callback' => 'simple_ass_modal_page',
-    'access arguments' => array('access content'),
-    'type' => MENU_CALLBACK,
-  );
-  return $items;
-}
-      </pre>
-      <footer class="source">Example <strike>stolen</strike> taken from <a href="http://awebfactory.com.ar/node/491">awebfactory</a>.</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Modals with CTools</h2>
-    </hgroup>
-    <article class="smaller">
-      <p>Declare your modal callback with hook_menu()</p>
-      <pre class="prettyprint" data-lang="php">
-function simple_ass_modal_page() {
-  <b>ctools_include('ajax');
-  ctools_include('modal');
-  ctools_modal_add_js();</b>
-  $custom_style = array(
-    'my-simple-ass-modal-style' => array(
-      'modalSize' => array(
-        'type' => 'fixed',
-        'width' => 425,
-        'height' => 250,
-      ),
-      'animation' => 'fadeIn',
-    ),
-  );
-  drupal_add_js($custom_style, 'setting');
-  <b>$output = ctools_modal_text_button(t('Click Here'), 'simple_ass_modal/nojs/test/form',
-    t('Pop me up'), 'ctools-modal-my-simple-ass-modal-style');</b>
-  $output .= '&lt;div id="modal-message"&gt;&nbsp&lt;/div&gt;';
-  ctools_include('plugins');
-  return $output;
-}
-      </pre>
-    </article>
-  </slide>
-
-  <slide hidden>
-    <hgroup>
-      <h2>Jump menus</h2>
-      <h3>Create a jump menu easily with CTools</h3>
-    </hgroup>
-    <article>
-    </article>
-    <article class="build centered zen-container zen-two-col">
-      <div>
-        <img src="images/jump_menu_2.png" class="reflect" alt="Jump menu" title="Jump menu">
-      </div>
-      <div>
-        <img src="images/jump_menu.jpg" class="reflect" alt="Jump menu" title="Jump menu">
-      </div>
-    </article>
-  </slide>
-
-  <slide hidden>
-    <hgroup>
-      <h2>Jump menus</h2>
-    </hgroup>
-    <article class="smaller">
-      <p>Declare your modal callback with hook_menu()</p>
-      <pre class="prettyprint" data-lang="php">
-function ctools_example_jump_menu_page($form, &$form_state) {
-  $form = array();
-  $form['text'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Your textfield'),
-    '#default_value' => check_plain(arg(2)),
-  );
-  <b>$targets = array(
-    '/ctools_example/jump_menu/one' => t('One'),
-    '/ctools_example/jump_menu/two' => t('Two'),
-    '/ctools_example/jump_menu/three' => t('Three'),
-  );
-  ctools_include('jump-menu');
-  $form['jump_menu'] = drupal_get_form('ctools_jump_menu', $targets, array());</b>
-  return $form;
-}
-      </pre>
-    <footer class="source"><a href="https://github.com/pcambra/ctools_jump_menu_example">Example link</a>. Also, see <a href="http://drupal.org/project/jump_menu"> Better Jump Menus</a> module.</footer>
-    </article>
-  </slide>
 
 
-  <slide>
-    <hgroup>
-      <h2>But also all these other cool things</h2>
-    </hgroup>
-    <article class="flexbox vleft">
-      <ul>
-        <li>Exportables</li>
-        <li>Jump menus</li>
-        <li>Object caching</li>
-        <li>Form wizard</li>
-        <li>CSS Tools</li>
-        <li>Dropdown buttons</li>
-        <li>Extra ajax commands</li>
-        <li>Entity autocomplete helper</li>
-      </ul>
-    </article>
-  </slide>
 
   <slide>
     <hgroup>

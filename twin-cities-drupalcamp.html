@@ -104,6 +104,24 @@ close div close div sigh
     </article>
   </slide>
 
+
+  <slide class="brown nobackground">
+    <hgroup class="auto-fadein">
+      <h2>What's a plugin?</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Plugins add discrete <br/>
+        abilities to your site. <br/>
+        Assembly required.
+      </q>
+    </article>
+  </slide>
+
+
+
+
+
   <slide class="nobackground">
     <hgroup>
       <h2>Steve Persch</h2>
@@ -498,13 +516,11 @@ function _simplified_ctools_user_from_node_context($context, $conf) {
   <slide>
     <hgroup>
       <h2>Layout plugins</h2>
-      <h3>@todo  image</h3>
     </hgroup>
     <article>
-
-
-
-
+      <div>
+      <img src="images/panels/layouts.png" alt="" title="" />
+      </div>
     </article>
   </slide>
 
@@ -519,6 +535,21 @@ Tell it your regions<br>
 And give it a TPL.<br>
 See it in Panels.
       </q>
+    </article>
+  </slide>
+
+
+
+  <slide>
+    <hgroup>
+      <h2>Content Type Plugins</h2>
+      <h3>No, the other kind of "content type"</h3>
+    </hgroup>
+    <article>
+      <iframe height="80%" src="http://drupalcode.org/project/panels.git/blob/6662e3b87186e42b677030eae63702fdb8061531:/plugins/layouts/twocol/panels-twocol.tpl.php">
+      </iframe>
+
+      <footer class="source">Full version at: <a href="http://drupalcode.org/project/panels.git/blob/6662e3b87186e42b677030eae63702fdb8061531:/plugins/layouts/twocol/panels-twocol.tpl.php">panels/plugins/layouts/twocol/panels-twocol.tpl.php</a></footer>
     </article>
   </slide>
 
@@ -692,8 +723,7 @@ ctools_node_content_type_admin_info($subtype, $conf);
     </aside>
   </slide>
 
-
-
+<!~- Add export example.  -->
 
   <slide>
     <hgroup>
@@ -1330,3 +1360,6 @@ _gaq.push(['_trackPageview']);
 <![endif]-->
 </body>
 </html>
+
+<!-- D8 example, actions.
+http://drupalcode.org/project/drupal.git/blob/refs/heads/8.x:/core/modules/node/lib/Drupal/node/Plugin/Action/PromoteNode.php  -->

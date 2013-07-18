@@ -31,12 +31,18 @@ $i: 1;
   $i: ($i + 1);
 }
 
-slides > slide.branding-background,
-slides > slide.branding-background h2,
-slides > slide.haiku,
-slides > slide.haiku h2 {
+slide.branding-background,
+slide.haiku {
   color: #FFF;
+  h2,
+  // @todo not working
+  footer a,
+  footer a:hover {
+    color: #FFF;
+    text-decoration: none;
+  }
 }
+
 
 @mixin highlight-color($color: $brand-yellow) {
   -webkit-tap-highlight-color: $color;
@@ -447,9 +453,9 @@ code {
   color: black;
 }
 
-iframe {
+iframe.full-frame {
   width: 100%;
-  height: $slide-height - ($slide-top-bottom-padding * 2) - ($article-content-top-padding * 2);
+  height: $slide-height - ($slide-top-bottom-padding * 4) - ($article-content-top-padding * 4);
   background: white;
   border: 1px solid $gray-1;
   @include box-sizing(border-box);

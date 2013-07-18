@@ -8,23 +8,35 @@ $brand-small-icon-size-width: 250px;
 
 
 $i: 1;
-@each $filename in analog, chops, discover, energize, garden, iteration, level-up, noms, responsive, shenanigans, type, bike-shed, details, drupal, friends, growth, karma, networking, priorities, robots, tools, views {
-  .haiku:nth-child(22n+$i) {
-    background-image: url('../../images/palantir-branding/backgrounds/analog.jpg');
+@each $filename in analog, networking, bike-shed, tools, garden {
+  $background-pattern: "5n+" + $i;
+  slide.haiku:nth-child(#{$background-pattern}) {
+    background-image: url('../../images/palantir-branding/backgrounds/#{$filename}.jpg');
     background-size: cover;
   }
   $i: ($i + 1);
 }
 
+$i: 1;
+@each $filename in analog, chops, discover, energize, garden, iteration, level-up, noms, responsive, shenanigans, type, bike-shed, details, drupal, friends, growth, karma, networking, priorities, robots, tools, views {
+  $background-pattern: "22n+" + $i;
+  slide.random-branding-background:nth-child(#{$background-pattern}) {
+    background-image: url('../../images/palantir-branding/backgrounds/#{$filename}.jpg');
+    background-size: cover;
+  }
+  // the 1n+1 is meant to supercede the nth specificity in .haiku
+  slide.branding-background-#{$filename}:nth-child(1n+1) {
+    background-image: url('../../images/palantir-branding/backgrounds/#{$filename}.jpg');
+  }
+  $i: ($i + 1);
+}
 
-
-
+slides > slide.branding-background,
+slides > slide.branding-background h2,
 slides > slide.haiku,
 slides > slide.haiku h2 {
   color: #FFF;
 }
-
-
 
 @mixin highlight-color($color: $brand-yellow) {
   -webkit-tap-highlight-color: $color;
@@ -178,7 +190,7 @@ slides > slide {
     }
   }
 
-  &:not(.nobackground) {
+  &:not(.nobackground):not(.random-branding-background):not(.haiku) {
     //background: white url(../../images/google_developers_icon_128.png) ($brand-small-icon-size * 2) 98% no-repeat;
     //@include background-size($brand-small-icon-size $brand-small-icon-size);
 

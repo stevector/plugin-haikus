@@ -82,7 +82,6 @@ URL: https://code.google.com/p/io-2012-slides
     </article>
   </slide>
 
-
   <slide class="haiku branding-background-views">
     <hgroup class="auto-fadein">
       <h2>What's a haiku?</h2>
@@ -138,7 +137,6 @@ close div close div sigh
     </article>
   </slide>
 
-
   <slide class="haiku">
     <hgroup class="auto-fadein">
       <h2>What's a plugin?</h2>
@@ -151,7 +149,6 @@ close div close div sigh
       </q>
     </article>
   </slide>
-
 
   <slide>
     <hgroup>
@@ -187,7 +184,6 @@ close div close div sigh
     </article>
   </slide>
 
-
   <slide class="haiku">
     <hgroup class="auto-fadein">
       <h2>What's a plugin?</h2>
@@ -200,9 +196,6 @@ close div close div sigh
       </q>
     </article>
   </slide>
-
-
-
 
   <slide class="has-iframe">
     <hgroup>
@@ -280,13 +273,6 @@ close div close div sigh
       </p>
       <iframe width="420" height="315" src="http://www.youtube.com/embed/T5y3dJYHb_A" frameborder="0" allowfullscreen></iframe>
     </article>
-  </slide>
-
-
-  <slide class="subtitle-slide segue nobackground">
-    <hgroup class="auto-fadein">
-      <h1>Panels universe</h1>
-    </hgroup>
   </slide>
 
   <slide class="haiku">
@@ -396,7 +382,6 @@ close div close div sigh
   <slide>
     <hgroup>
       <h2>Once the code is open you could...</h2>
-
     </hgroup>
     <article>
       <ul>
@@ -496,8 +481,6 @@ ctools_node_type_ctools_access_summary($conf, $context);
     </article>
   </slide>
 
-
-
   <slide class="has-iframe">
     <hgroup>
       <h2>The full plugin file</h2>
@@ -571,9 +554,6 @@ function _simplified_ctools_context_create_node($empty, $data = NULL, $conf = FA
       <iframe width="420" height="315" src="http://www.youtube.com/embed/T5y3dJYHb_A" frameborder="0" allowfullscreen></iframe>
     </article>
   </slide>
-
-
-
 
   <slide>
     <hgroup>
@@ -651,21 +631,6 @@ See it in Panels.
       <footer class="source">Full version at: <a href="http://drupalcode.org/project/panels.git/blob/6662e3b87186e42b677030eae63702fdb8061531:/plugins/layouts/twocol/panels-twocol.tpl.php">panels/plugins/layouts/twocol/panels-twocol.tpl.php</a></footer>
     </article>
   </slide>
-<!--
-  <slide class="has-iframe">
-    <hgroup>
-      <h2>An example from core</h2>
-      <h3>Actions in D7</h3>
-    </hgroup>
-    <article>
-      <p class="iframe-link">iframe link: <a href="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/node/node.module#l3763">modules/node/node.module</a></p>
-      <iframe class="full-frame" src="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/node/node.module#l3763">
-      </iframe>
-    </article>
-  </slide>
--->
-
-
 
   <slide>
     <hgroup>
@@ -800,20 +765,6 @@ ctools_node_content_type_admin_info($subtype, $conf);
     </article>
   </slide>
 
-<!--
-  <slide class="has-iframe">
-    <hgroup>
-      <h2>An example from core</h2>
-      <h3>Actions in D7</h3>
-    </hgroup>
-    <article>
-      <p class="iframe-link">iframe link: <a href="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/node/node.module#l3763">modules/node/node.module</a></p>
-      <iframe class="full-frame" src="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/node/node.module#l3763">
-      </iframe>
-    </article>
-  </slide>
--->
-
   <slide class="haiku branding-background-robots">
       <hgroup>
       <h2>One more time</h2>
@@ -846,9 +797,7 @@ ctools_node_content_type_admin_info($subtype, $conf);
     </hgroup>
     <article>
       <ul>
-        <li><a href="http://drupal.org/project/plugin_stub">Drush: http://drupal.org/project/plugin_stub</a>
-          <br>Only supports some plugins types so far.
-        </li>
+        <li>Drush: <a href="http://drupal.org/project/plugin_stub">http://drupal.org/project/plugin_stub</a></li>
         <li>Copy/paste/edit</li>
         <li>Write from scratch</li>
         <li>Include the module hook</li>
@@ -865,7 +814,7 @@ function ctools_access_ruleset_ctools_plugin_directory($module, $plugin) {
     </article>
   </slide>
 
-<slide>
+  <slide>
     <hgroup>
       <h2>BTW, the example module is great.</h2>
       <h3>And you already have it. It's in CTools.</h3>
@@ -873,8 +822,7 @@ function ctools_access_ruleset_ctools_plugin_directory($module, $plugin) {
     <article>
       <img src="images/panels/ctools_plugin_examples.png" alt="ctools plugin example in netbeans" title="ctools plugin example in netbeans" />
     </article>
-</slide>
-
+  </slide>
 
   <slide class="haiku">
     <hgroup>
@@ -891,7 +839,7 @@ function ctools_access_ruleset_ctools_plugin_directory($module, $plugin) {
   <slide>
     <hgroup>
       <h2>Altering plugins</h2>
-      <h2>If this we're OO, you could extend</h2>
+      <h3>When you want a plugin to use a different function</h3>
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="php">
@@ -906,7 +854,6 @@ $plugin = array(
   'required context' => new ctools_context_required(t('Simplecontext'), 'simplecontext'),
   'edit form' => 'simplecontext_content_type_edit_form',
   'admin title' => 'ctools_plugin_example_simplecontext_content_type_admin_title',
-  // presents a block which is used in the preview of the data.
   'admin info' => 'ctools_plugin_example_simplecontext_content_type_admin_info',
   'category' => array(t('CTools Examples'), -9),
 );</pre>
@@ -917,39 +864,16 @@ $plugin = array(
   <slide>
     <hgroup>
       <h2>Altering plugins</h2>
-      <h3></h3>
+      <h3>Organic Groups Fieldable Panels Panes</h3>
     </hgroup>
     <article>
-      <!-- @todo,og fpp-->
-      <iframe class="full-frame" src="">
+      <iframe class="full-frame" src="http://drupalcode.org/project/og_fpp.git/blob/d5d754a99d5f1b2a5254595fb1c0e194a305dd84:/og_fpp.module#l9">
       </iframe>
-      <footer class="source"><a href=""></a></footer>
+      <footer class="source"><a href="http://drupalcode.org/project/og_fpp.git/blob/d5d754a99d5f1b2a5254595fb1c0e194a305dd84:/og_fpp.module#l9">og_fpp.module</a></footer>
     </article>
   </slide>
 
-
-
-
-  <slide class="subtitle-slide segue nobackground">
-    <hgroup class="auto-fadein">
-      <h1>Outside Panels universe</h1>
-    </hgroup>
-  </slide>
-
-  <slide class="segue brown nobackground">
-    <article class="centered flexbox vleft auto-fadein">
-      <q>
-        It’s not just Panels.<br/>
-        Plugins can enhance much more.<br/>
-        Extend your mind too.
-      </q>
-    </article>
-    <aside class="note">
-      <section>
-        <p>Plugins don’t solely live inside and for Panels, but for encapsulating other useful pieces of code to be shipped and extended by other parties. We could introduce the concept of what a plugin outside panels should do. Show a couple of examples and how to extend things like entity reference or addressfield.</p>
-      </section>
-    </aside>
-  </slide>
+<!-- @todo Add export example.  -->
 
   <slide class="haiku">
     <hgroup>
@@ -964,8 +888,17 @@ $plugin = array(
     </article>
   </slide>
 
-
-<!-- Add export example.  -->
+  <slide>
+    <hgroup>
+      <h2>Normal field module</h2>
+    </hgroup>
+    <article>
+      <iframe class="full-frame" src="http://drupalcode.org/project/drupal.git/blob/39be69046740a68ea73d1a7f27dd2f7aa4c66727:/modules/field/modules/number/number.module">
+      </iframe>
+      <footer class="source"><a href="http://drupalcode.org/project/drupal.git/blob/39be69046740a68ea73d1a7f27dd2f7aa4c66727:/modules/field/modules/number/number.module">modules/field/modules/number/number.module
+</a></footer>
+    </article>
+  </slide>
 
   <slide>
     <hgroup>
@@ -1010,7 +943,6 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
     <footer class="source">Example from <a href="http://drupal.org/project/commerce_coupon">Commerce coupon</a>. Other example: <a href="http://drupal.org/project/webform_entity">Webform entity module</a>.</footer>
     </article>
   </slide>
-
 
   <slide>
     <hgroup>

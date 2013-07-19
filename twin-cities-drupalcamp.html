@@ -36,7 +36,7 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
   </slide>
 
-  <slide class="nobackground">
+  <slide>
     <hgroup>
       <h2>Steve Persch</h2>
     </hgroup>
@@ -49,7 +49,6 @@ URL: https://code.google.com/p/io-2012-slides
         <li>@stevector on <a href="http://drupal.org/user/179805">Drupal.org</a>, <a href="http://twitter.com/stevector">Twitter</a> and <a href="https://github.com/stevector">Github</a></li>
         <li>Senior Engineer at <a href="http://palantir.net">Palantir.net</a></li>
       </ul>
-      <p><img src="images/ctools/palantirnet-logo-2013.png" alt="Palantir logo" title="Palantir logo" /></p>
       <p>Our mission at Palantir is to empower and enable people everywhere to share information through highly functional websites and interactive software.</p>
       </div>
     </article>
@@ -156,7 +155,7 @@ close div close div sigh
     </hgroup>
     <article>
       <!-- @todo Screenshot of node actions -->
-      <img src="images/palantir-branding/sample-projects/" alt="@todo screenshot needed" title="" />
+      <img src="images/panels/d7actions.png" alt="" title="" />
     </article>
   </slide>
 
@@ -166,8 +165,9 @@ close div close div sigh
       <h3>Actions in D7</h3>
     </hgroup>
     <article>
+      <!-- move to footer -->
       <p class="iframe-link">iframe link: <a href="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/node/node.module#l3763">modules/node/node.module</a></p>
-      <iframe src="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/node/node.module#l3763">
+      <iframe class="full-frame" src="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/node/node.module#l3763">
       </iframe>
     </article>
   </slide>
@@ -622,7 +622,6 @@ See it in Panels.
   <slide>
     <hgroup>
       <h2>A Layout TPL</h2>
-      <h3>No, the other kind of "content type"</h3>
     </hgroup>
     <article>
       <iframe class="full-frame" src="http://drupalcode.org/project/panels.git/blob/6662e3b87186e42b677030eae63702fdb8061531:/plugins/layouts/twocol/panels-twocol.tpl.php">
@@ -826,6 +825,30 @@ function ctools_access_ruleset_ctools_plugin_directory($module, $plugin) {
 
   <slide class="haiku">
     <hgroup>
+      <h2>Child plugins</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        One plugin becomes<br>
+        More plugins through a “foreach.”<br>
+        Fewer files needed.
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>An example of child plugins</h2>
+      <h3>An Access for whether a given entity is of the right bundle</h3>
+    </hgroup>
+    <article>
+      <iframe class="full-frame" src="http://drupalcode.org/project/ctools.git/blob/refs/heads/7.x-1.x:/plugins/access/entity_bundle.inc#l30">
+      </iframe>
+      <footer class="source"><a href="http://drupalcode.org/project/ctools.git/blob/refs/heads/7.x-1.x:/plugins/access/entity_bundle.inc#l30">plugins/access/entity_bundle.inc</a></footer>
+    </article>
+  </slide>
+
+  <slide class="haiku">
+    <hgroup>
       <h2>hook_ctools_plugin_post_alter()</h2>
     </hgroup>
     <article class="centered flexbox vleft auto-fadein">
@@ -872,8 +895,6 @@ $plugin = array(
       <footer class="source"><a href="http://drupalcode.org/project/og_fpp.git/blob/d5d754a99d5f1b2a5254595fb1c0e194a305dd84:/og_fpp.module#l9">og_fpp.module</a></footer>
     </article>
   </slide>
-
-<!-- @todo Add export example.  -->
 
   <slide class="haiku">
     <hgroup>
@@ -944,6 +965,86 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
     </article>
   </slide>
 
+  <slide class="haiku">
+    <hgroup>
+      <h2>Export UI</h2>
+    </hgroup>
+    <article class="centered flexbox vleft auto-fadein">
+      <q>
+        Export ui is<br>
+        Not about exporting things.<br>
+        It's for loading things.
+      </q>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Mini Panels as a "content type"</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/mini-panels-content-types.png" alt="Mini Panels" title="Mini Panels" />
+    </article>
+  </slide>
+
+<!--
+  <slide>
+    <hgroup>
+      <h2>Normal field module</h2>
+    </hgroup>
+    <article>
+      <iframe class="full-frame" src="http://drupalcode.org/project/drupal.git/blob/39be69046740a68ea73d1a7f27dd2f7aa4c66727:/modules/field/modules/number/number.module">
+      </iframe>
+      <footer class="source"><a href="http://drupalcode.org/project/drupal.git/blob/39be69046740a68ea73d1a7f27dd2f7aa4c66727:/modules/field/modules/number/number.module">modules/field/modules/number/number.module
+</a></footer>
+    </article>
+  </slide>
+-->
+  <slide>
+    <hgroup>
+      <h2>Mini Panels and Export UI</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/mini-panels-export-ui.png" alt="Mini Panels" title="Mini Panels" />
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h2>One module, two plugin types</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/panels-mini-directory.png" alt="Mini Panels" title="Mini Panels" />
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>What's the point?</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/panels_mini_table.png" alt="Panels Mini table" title="Panels Mini table" />
+      <br>
+      <img src="images/panels/panels-mini-features.png" alt="Panels Mini Features" title="Panels Mini Features" />
+    </article>
+  </slide>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <slide>
     <hgroup>
       <h2>Wait, there is more!</h2>
@@ -952,8 +1053,6 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
     <article>
       <ul class="build">
         <li><a href="http://drupal.org/project/views">Views</a></li>
-      </ul>
-      <ul class="build">
         <li><a href="http://drupal.org/project/addressfield">Addressfield</a></li>
         <li><a href="http://drupal.org/project/crumbs">Crumbs</a></li>
         <li><a href="http://drupal.org/project/feeds">Feeds</a></li>
@@ -968,7 +1067,7 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
 
   <slide>
     <hgroup>
-      <h2>One More</h2>
+      <h2>One more plug</h2>
       <h3>D8 Plugin System Deep Dive session</h3>
     </hgroup>
     <article>
@@ -1000,11 +1099,14 @@ class EntityReference_SelectionHandler_Generic_commerce_coupon
       <h2>Thanks!</h2>
       <h3>More info at:</h3>
       <ul>
-        <li><a href="http://drupal.org/project/ctools">CTools Module: http://drupal.org/project/ctools</a></li>
-        <li><a href="http://drupalcode.org/project/ctools.git/tree/refs/heads/7.x-1.x:/ctools_plugin_example">Ctools Plugin Example (inside CTools)</a></li>
-        <li><a href="http://drupal.org/node/1637614">Drupal 8 Plugin docs: http://drupal.org/node/1637614</a></li>
+        <li><a href="http://drupal.org/project/ctools">CTools module: http://drupal.org/project/ctools</a></li>
+        <li><a href="http://drupalcode.org/project/ctools.git/tree/refs/heads/7.x-1.x:/ctools_plugin_example">Ctools plugin example (inside CTools)</a></li>
+        <li><a href="http://portland2013.drupal.org/node/2458">Drupal 8 plugin presentation in Portland</a></li>
       </ul>
     </article>
+    <p>Steve Persch<br>
+    Senior Engineer, Palantir.net</p>
+
     <!-- @todo
    <p class="auto-fadein" data-config-contact>
      populated from slide_config.json

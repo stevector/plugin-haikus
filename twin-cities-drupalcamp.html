@@ -794,7 +794,6 @@ ctools_node_content_type_admin_info($subtype, $conf);
       <h2>Go straight to the big render function</h2>
     </hgroup>
     <article>
-      <!-- @todo, height is not working on iframe -->
       <iframe class="full-frame" src="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/views_content/plugins/content_types/views_panes.inc#l198">
       </iframe>
       <footer class="source"><a href="http://drupalcode.org/project/ctools.git/blob/9d092ccef990c50b19391a3170eca75e1424737e:/views_content/plugins/content_types/views_panes.inc#l198">views_content/plugins/content_types/views_panes.inc</a></footer>
@@ -868,18 +867,18 @@ function ctools_access_ruleset_ctools_plugin_directory($module, $plugin) {
 
 <slide>
     <hgroup>
-      <h2>BTW, the plugin example module is great.</h2>
+      <h2>BTW, the example module is great.</h2>
       <h3>And you already have it. It's in CTools.</h3>
     </hgroup>
     <article>
-      <img src="images/ctools/ctools_plugin_examples.png" alt="ctools plugin example in netbeans" title="ctools plugin example in netbeans @todo" />
+      <img src="images/panels/ctools_plugin_examples.png" alt="ctools plugin example in netbeans" title="ctools plugin example in netbeans" />
     </article>
 </slide>
 
 
   <slide class="haiku">
     <hgroup>
-      <h2>hook_ctools_pre_alter() @todo, name check</h2>
+      <h2>hook_ctools_plugin_post_alter()</h2>
     </hgroup>
     <article class="centered flexbox vleft auto-fadein">
       <q>
@@ -889,11 +888,32 @@ function ctools_access_ruleset_ctools_plugin_directory($module, $plugin) {
     </article>
   </slide>
 
+  <slide>
+    <hgroup>
+      <h2>Altering plugins</h2>
+      <h2>If this we're OO, you could extend</h2>
+    </hgroup>
+    <article>
+      <pre class="prettyprint" data-lang="php">
+$plugin = array(
+  'title' => t('Simplecontext content type'),
+  'content_types' => 'simplecontext_content_type',
+  // Name of a function which will render the block.
+  'render callback' => 'simplecontext_content_type_render',
+  // Icon goes in the directory with the content type.
+  'icon' => 'icon_example.png',
+  'description' => t('Simplecontext content type - works with a simplecontext context.'),
+  'required context' => new ctools_context_required(t('Simplecontext'), 'simplecontext'),
+  'edit form' => 'simplecontext_content_type_edit_form',
+  'admin title' => 'ctools_plugin_example_simplecontext_content_type_admin_title',
+  // presents a block which is used in the preview of the data.
+  'admin info' => 'ctools_plugin_example_simplecontext_content_type_admin_info',
+  'category' => array(t('CTools Examples'), -9),
+);</pre>
+<footer class="source">Real version at: <a href="http://drupalcode.org/project/ctools.git/blob_plain/refs/heads/7.x-1.x:/ctools_plugin_example/plugins/content_types/simplecontext_content_type.inc">ctools_plugin_example/plugins/content_types/simplecontext_content_type.inc</a></footer>
+    </article>
+  </slide>
 
-
-
-
-<!-- @todo copy in example of the big array -->  
   <slide>
     <hgroup>
       <h2>Altering plugins</h2>

@@ -144,14 +144,15 @@ close div close div sigh
       <q>
         Plugins are units <br/>
         of behavior that might need <br/>
-        configuration.
+        config and context.
       </q>
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Node actions</h2>
+      <h2>An example from core</h2>
+      <h3>Actions in D7</h3>
     </hgroup>
     <article>
       <img src="images/panels/d7actions.png" alt="" title="" />
@@ -201,9 +202,9 @@ close div close div sigh
       <h3>Blocks in D7</h3>
     </hgroup>
     <article>
-      <p class="iframe-link">iframe link: <a href="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/system/system.module#l2032">modules/system/system.module</a></p>
       <iframe class="full-frame" src="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/system/system.module#l2032">
       </iframe>
+      <footer class="source"><a href="http://drupalcode.org/project/drupal.git/blob/66bc8fb393d4bf2ff0230c80350143bd186a1d51:/modules/system/system.module#l2032">modules/system/system.module</a>
     </article>
   </slide>
 
@@ -214,9 +215,9 @@ close div close div sigh
       <h3>Blocks in D8</h3>
     </hgroup>
     <article>
-      <p class="iframe-link">iframe link: <a href="http://drupalcode.org/project/drupal.git/blob/d8e21f879c652b027dcdf3fbcc70608ae2595bd7:/core/modules/system/lib/Drupal/system/Plugin/Block/SystemPoweredByBlock.php">SystemPoweredByBlock.php</a></p>
       <iframe class="full-frame" src="http://drupalcode.org/project/drupal.git/blob/d8e21f879c652b027dcdf3fbcc70608ae2595bd7:/core/modules/system/lib/Drupal/system/Plugin/Block/SystemPoweredByBlock.php#l14">
       </iframe>
+      <footer class="source"><a href="http://drupalcode.org/project/drupal.git/blob/d8e21f879c652b027dcdf3fbcc70608ae2595bd7:/core/modules/system/lib/Drupal/system/Plugin/Block/SystemPoweredByBlock.php">SystemPoweredByBlock.php</a></footer>
     </article>
   </slide>
 
@@ -340,6 +341,16 @@ close div close div sigh
       <img src="images/panels/layouts.png" alt="" title="" />
     </article>
   </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Find your stuff</h2>
+    </hgroup>
+    <article>
+      <img src="images/panels/content-type-browser.png" alt="content type" title="content type" />
+    </article>
+  </slide>
+
 
   <slide>
     <hgroup>
@@ -501,7 +512,7 @@ ctools_node_type_ctools_access_summary($conf, $context);
 
   <slide class="haiku">
     <hgroup>
-      <h2>Context Plugins</h2>
+      <h2>Context plugins</h2>
     </hgroup>
     <article class="centered flexbox vleft auto-fadein">
       <q>
@@ -514,7 +525,7 @@ ctools_node_type_ctools_access_summary($conf, $context);
 
   <slide>
     <hgroup>
-      <h2>Context Plugin code</h2>
+      <h2>Context plugin code</h2>
     </hgroup>
     <article>
       <pre class="prettyprint">
@@ -539,7 +550,7 @@ function _simplified_ctools_context_create_node($empty, $data = NULL, $conf = FA
 
   <slide>
     <hgroup>
-      <h2>Second Reminder</h2>
+      <h2>Second reminder</h2>
       <h3>D8 Plugin System Deep Dive session</h3>
     </hgroup>
     <article>
@@ -554,7 +565,7 @@ function _simplified_ctools_context_create_node($empty, $data = NULL, $conf = FA
 
   <slide>
     <hgroup>
-      <h2>Relationship Plugins</h2>
+      <h2>Relationship plugins</h2>
     </hgroup>
     <article>
       <img src="images/panels/contexts.png" alt="Contexts screen" title="Contexts screen" />
@@ -563,7 +574,7 @@ function _simplified_ctools_context_create_node($empty, $data = NULL, $conf = FA
 
   <slide class="haiku branding-background-friends">
     <hgroup>
-      <h2>Relationship Plugins</h2>
+      <h2>Relationship plugins</h2>
     </hgroup>
     <article class="centered flexbox vleft auto-fadein">
       <q>
@@ -576,7 +587,7 @@ function _simplified_ctools_context_create_node($empty, $data = NULL, $conf = FA
 
   <slide>
     <hgroup>
-      <h2>Node to Author relationship</h2>
+      <h2>Node to author relationship</h2>
     </hgroup>
     <article>
       <pre class="prettyprint" data-lang="php">

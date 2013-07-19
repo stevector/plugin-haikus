@@ -44,6 +44,14 @@ slide.haiku {
 }
 
 
+article img {
+  border: 2px #ccc solid;
+}
+
+
+
+
+
 @mixin highlight-color($color: $brand-yellow) {
   -webkit-tap-highlight-color: $color;
   -moz-tap-highlight-color: $color;
@@ -348,7 +356,6 @@ b {
 a {
   color: $brand-blue-secondary2;
   text-decoration: none;
-  border-bottom: 1px solid rgba(42, 124, 223, 0.5);
 
   &:hover {
     color: black !important;
@@ -910,13 +917,23 @@ article.smaller {
   }
 }
 
+
+$brand-teal:#0DA9A0;
+$brand-green:#9FC854;
+$brand-dark: #444342;
+$brand-orange: #F16722;
+
+
 .thank-you-slide {
-  background: $brand-blue !important;
-  color: white;
+  background: #fff   !important;
+  color: $brand-orange;
 
   h2 {
     font-size: 55px;
     color: inherit;
+  }
+  h3 {
+  color: $brand-dark;
   }
 
   article > p {
@@ -932,12 +949,12 @@ article.smaller {
   }
 
   a {
-    color: $brand-yellow-secondary;
+    color: $brand-teal;
   }
 }
 
 aside.gdbar {
-  height: 125px;
+  height: 102px;
   width: 215px;
   position: absolute;
   left: -1px;
